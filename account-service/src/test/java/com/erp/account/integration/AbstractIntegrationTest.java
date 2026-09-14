@@ -47,6 +47,19 @@ public abstract class AbstractIntegrationTest {
         POSTGRES.start();
     }
 
+    // Everything else (spring.cloud.config.enabled=false, eureka.client.enabled=false,
+    // jwt.secret, ddl-auto, flyway baseline) now lives in
+    // src/test/resources/application.yml instead of here. This is NOT just tidiness:
+    // Spring Boot resolves "spring.config.import: configserver:..." during environment
+    // preparation, which runs before the ApplicationContext exists - and therefore
+    // before @DynamicPropertySource (a test-context customizer) ever gets a chance to
+    // add its properties. Disabling Config Server via @DynamicPropertySource was too
+    // late to matter: Spring Cloud Config had already attempted (and, without a real
+    // Config Server reachable, failed with ConfigClientFailFastException) to fetch
+    // remote config by the time this method ran. A classpath application.yml is
+    // processed during that same early config-data phase, so it actually takes effect
+    // in time. Only the datasource URL/credentials stay here, since they're genuinely
+    // only known once Testcontainers assigns a port at runtime.
     @DynamicPropertySource
     static void registerProperties(DynamicPropertyRegistry registry) {
         // Postgres JDBC driver otherwise sends the JVM's default TimeZone (e.g. the
@@ -59,19 +72,6 @@ public abstract class AbstractIntegrationTest {
                 + POSTGRES.getMappedPort(5432) + "/" + POSTGRES.getDatabaseName() + "?TimeZone=UTC");
         registry.add("spring.datasource.username", POSTGRES::getUsername);
         registry.add("spring.datasource.password", POSTGRES::getPassword);
-
-        // Isolate from live infra - never hit config-server or Eureka during tests.
-        registry.add("spring.config.import", () -> "");
-        registry.add("spring.cloud.config.enabled", () -> "false");
-        registry.add("eureka.client.enabled", () -> "false");
-
-        // Mirrors D:\erp-config behavior: schema must be pre-created (Flyway) before
-        // Hibernate validates against it.
-        registry.add("spring.jpa.hibernate.ddl-auto", () -> "validate");
-        registry.add("spring.flyway.baseline-on-migrate", () -> "true");
-        registry.add("spring.flyway.baseline-version", () -> "1");
-
-        registry.add("jwt.secret", () -> TEST_JWT_SECRET);
     }
 
 }

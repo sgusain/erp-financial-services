@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: USER-SERVICE
+  cloud:
+    config:
+      enabled: false
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    show-sql: true
+  flyway:
+    baseline-on-migrate: true
+    baseline-version: 1
+
+eureka:
+  client:
+    enabled: false
+    register-with-eureka: false
+    fetch-registry: false
+
+jwt:
+  secret: test-only-secret-key-for-integration-tests-must-be-256-bits-long-enough
+  expiration: 900000
+  refresh-expiration: 604800000
+
+resilience4j:
+  ratelimiter:
+    instances:
+      login:
+        limit-for-period: 10000
+        limit-refresh-period: 1s
+        timeout-duration: 0s
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

@@ -44,6 +44,19 @@ public abstract class AbstractIntegrationTest {
         POSTGRES.start();
     }
 
+    // Everything else (spring.cloud.config.enabled=false, eureka.client.enabled=false,
+    // jwt.*, ddl-auto, flyway baseline, rate limiter) now lives in
+    // src/test/resources/application.yml instead of here. This is NOT just tidiness:
+    // Spring Boot resolves "spring.config.import: configserver:..." during environment
+    // preparation, which runs before the ApplicationContext exists - and therefore
+    // before @DynamicPropertySource (a test-context customizer) ever gets a chance to
+    // add its properties. Disabling Config Server via @DynamicPropertySource was too
+    // late to matter: Spring Cloud Config had already attempted (and, without a real
+    // Config Server reachable, failed) to fetch remote config by the time this method
+    // ran. A classpath application.yml is processed during that same early config-data
+    // phase, so it actually takes effect in time. Only the datasource URL/credentials
+    // stay here, since they're genuinely only known once Testcontainers assigns a port
+    // at runtime - nothing else belongs in this method.
     @DynamicPropertySource
     static void registerProperties(DynamicPropertyRegistry registry) {
         // Postgres JDBC driver otherwise sends the JVM's default TimeZone (e.g. the
@@ -56,29 +69,6 @@ public abstract class AbstractIntegrationTest {
                 + POSTGRES.getMappedPort(5432) + "/" + POSTGRES.getDatabaseName() + "?TimeZone=UTC");
         registry.add("spring.datasource.username", POSTGRES::getUsername);
         registry.add("spring.datasource.password", POSTGRES::getPassword);
-
-        // Isolate from live infra - never hit config-server or Eureka during tests.
-        registry.add("spring.config.import", () -> "");
-        registry.add("spring.cloud.config.enabled", () -> "false");
-        registry.add("eureka.client.enabled", () -> "false");
-
-        // Mirrors D:\erp-config behavior: schema must be pre-created (Flyway) before
-        // Hibernate validates against it.
-        registry.add("spring.jpa.hibernate.ddl-auto", () -> "validate");
-        registry.add("spring.flyway.baseline-on-migrate", () -> "true");
-        registry.add("spring.flyway.baseline-version", () -> "1");
-
-        // jwt.* normally comes from the shared config-server application.yml; supply
-        // directly since config-server import is disabled for tests.
-        registry.add("jwt.secret", () -> "test-only-secret-key-for-integration-tests-must-be-256-bits-long-enough");
-        registry.add("jwt.expiration", () -> "900000");
-        registry.add("jwt.refresh-expiration", () -> "604800000");
-
-        // Generous rate limit so lockout/retry-heavy tests aren't flaky against the
-        // @RateLimiter on /api/auth/login.
-        registry.add("resilience4j.ratelimiter.instances.login.limit-for-period", () -> "10000");
-        registry.add("resilience4j.ratelimiter.instances.login.limit-refresh-period", () -> "1s");
-        registry.add("resilience4j.ratelimiter.instances.login.timeout-duration", () -> "0s");
     }
 
 }
