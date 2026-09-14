@@ -50,9 +50,20 @@ class JwtUtilTest {
     @Test
     void isTokenValid_falseForTamperedToken() {
         String token = jwtUtil.generateToken("dave@example.com", "USER");
-        // Flip the last character of the signature segment to corrupt it.
-        String tampered = token.substring(0, token.length() - 1)
-                + (token.charAt(token.length() - 1) == 'a' ? 'b' : 'a');
+        // Flip a character in the middle of the signature segment, not the
+        // very last character of the token: base64url's final character can
+        // have unused padding bits, so certain single-character swaps right
+        // at the end can decode to the same underlying byte and leave the
+        // signature genuinely unchanged - this was observed as a flaky
+        // failure (each generated token has different bytes due to the
+        // embedded timestamp, so whether the last character sits on such a
+        // boundary varies run to run). A middle character always changes the
+        // decoded signature bytes.
+        int lastDot = token.lastIndexOf('.');
+        int flipIndex = lastDot + (token.length() - lastDot) / 2;
+        char original = token.charAt(flipIndex);
+        char replacement = original == 'a' ? 'b' : 'a';
+        String tampered = token.substring(0, flipIndex) + replacement + token.substring(flipIndex + 1);
 
         assertThat(jwtUtil.isTokenValid(tampered)).isFalse();
     }
