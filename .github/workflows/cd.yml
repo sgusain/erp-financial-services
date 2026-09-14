@@ -6,7 +6,6 @@ on:
 
 env:
   AWS_REGION: eu-north-1
-  ECR_REGISTRY: ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.eu-north-1.amazonaws.com
 
 jobs:
   test:
@@ -82,6 +81,7 @@ jobs:
           aws-region: eu-north-1
 
       - name: Login to Amazon ECR
+        id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
 
       - name: Get git SHA
@@ -91,12 +91,12 @@ jobs:
       - name: Build Docker image
         run: |
           docker build \
-            -t ${{ env.ECR_REGISTRY }}/erp-${{ matrix.service }}:${{ steps.vars.outputs.sha }} \
-            -t ${{ env.ECR_REGISTRY }}/erp-${{ matrix.service }}:latest \
+            -t ${{ steps.login-ecr.outputs.registry }}/erp-${{ matrix.service }}:${{ steps.vars.outputs.sha }} \
+            -t ${{ steps.login-ecr.outputs.registry }}/erp-${{ matrix.service }}:latest \
             -f ${{ matrix.service }}/Dockerfile \
             .
 
       - name: Push Docker image to ECR
         run: |
-          docker push ${{ env.ECR_REGISTRY }}/erp-${{ matrix.service }}:${{ steps.vars.outputs.sha }}
-          docker push ${{ env.ECR_REGISTRY }}/erp-${{ matrix.service }}:latest
+          docker push ${{ steps.login-ecr.outputs.registry }}/erp-${{ matrix.service }}:${{ steps.vars.outputs.sha }}
+          docker push ${{ steps.login-ecr.outputs.registry }}/erp-${{ matrix.service }}:latest
