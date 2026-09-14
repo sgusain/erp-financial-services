@@ -1,12 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <property name="SERVICE_NAME" value="config-server"/>
+
+    <appender name="CONSOLE"
+              class="ch.qos.logback.core.ConsoleAppender">
         <encoder class="net.logstash.logback.encoder.LogstashEncoder">
-            <customFields>{"service":"config-server"}</customFields>
+            <customFields>{"service":"${SERVICE_NAME}"}</customFields>
+        </encoder>
+    </appender>
+
+    <appender name="FILE"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/${SERVICE_NAME}.log</file>
+        <rollingPolicy
+            class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>
+                logs/${SERVICE_NAME}.%d{yyyy-MM-dd}.log
+            </fileNamePattern>
+            <maxHistory>7</maxHistory>
+        </rollingPolicy>
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <customFields>{"service":"${SERVICE_NAME}"}</customFields>
+        </encoder>
+    </appender>
+
+    <appender name="LOGSTASH"
+              class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+        <destination>${LOGSTASH_HOST:-logstash}:5000</destination>
+        <reconnectionDelay>10 seconds</reconnectionDelay>
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <customFields>{"service":"${SERVICE_NAME}"}</customFields>
         </encoder>
     </appender>
 
     <root level="INFO">
         <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="LOGSTASH"/>
     </root>
 </configuration>
