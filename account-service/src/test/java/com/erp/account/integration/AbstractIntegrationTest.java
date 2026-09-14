@@ -1,0 +1,77 @@
+package com.erp.account.integration;
+
+import org.junit.jupiter.api.Tag;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.DynamicPropertyRegistry;
+import org.springframework.test.context.DynamicPropertySource;
+import org.testcontainers.containers.PostgreSQLContainer;
+import org.testcontainers.utility.DockerImageName;
+
+import java.util.TimeZone;
+
+/**
+ * Base class for full Spring context integration tests backed by a real, throwaway
+ * Testcontainers Postgres instance. Deliberately isolates the test context from live
+ * infrastructure (config-server on 8888, Eureka on 8761) so tests are fast and
+ * deterministic and never touch the developer's real Postgres/Kafka/etc containers.
+ *
+ * Uses the Testcontainers "singleton container" pattern: the container is started
+ * once (manually, in a static initializer) and shared across every integration test
+ * class in this module within the same JVM fork, rather than being annotated
+ * with @Container/@Testcontainers - which would start/stop it per test class and
+ * break once a later class tried to reuse an already-stopped container. Testcontainers'
+ * Ryuk resource reaper cleans it up when the JVM exits.
+ */
+@Tag("integration")
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+public abstract class AbstractIntegrationTest {
+
+    // Same secret value used across all account-service integration tests so that
+    // hand-crafted JWTs (built in tests, since account-service never issues tokens
+    // itself) validate correctly against JwtValidator.
+    public static final String TEST_JWT_SECRET =
+            "test-only-secret-key-for-integration-tests-must-be-256-bits-long-enough";
+
+    static final PostgreSQLContainer<?> POSTGRES =
+            new PostgreSQLContainer<>(DockerImageName.parse("postgres:15"))
+                    .withDatabaseName("accountdb_test")
+                    .withUsername("test")
+                    .withPassword("test");
+
+    static {
+        // See user-service's AbstractIntegrationTest for why this is necessary: the
+        // JVM's regional default TimeZone ("Asia/Calcutta") is rejected outright by
+        // Postgres as an invalid startup parameter. Must happen before any JDBC
+        // connection is opened.
+        TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
+        POSTGRES.start();
+    }
+
+    @DynamicPropertySource
+    static void registerProperties(DynamicPropertyRegistry registry) {
+        // Postgres JDBC driver otherwise sends the JVM's default TimeZone (e.g. the
+        // legacy ID "Asia/Calcutta"), which some Postgres builds reject as an invalid
+        // TimeZone startup parameter. Mirrors the "?TimeZone=UTC" already used in
+        // D:\erp-config\{user,account}-service.yml datasource URLs for the same reason.
+        // Built directly from host/port/database rather than appending to
+        // getJdbcUrl() to avoid any ambiguity over whether it already has a query string.
+        registry.add("spring.datasource.url", () -> "jdbc:postgresql://" + POSTGRES.getHost() + ":"
+                + POSTGRES.getMappedPort(5432) + "/" + POSTGRES.getDatabaseName() + "?TimeZone=UTC");
+        registry.add("spring.datasource.username", POSTGRES::getUsername);
+        registry.add("spring.datasource.password", POSTGRES::getPassword);
+
+        // Isolate from live infra - never hit config-server or Eureka during tests.
+        registry.add("spring.config.import", () -> "");
+        registry.add("spring.cloud.config.enabled", () -> "false");
+        registry.add("eureka.client.enabled", () -> "false");
+
+        // Mirrors D:\erp-config behavior: schema must be pre-created (Flyway) before
+        // Hibernate validates against it.
+        registry.add("spring.jpa.hibernate.ddl-auto", () -> "validate");
+        registry.add("spring.flyway.baseline-on-migrate", () -> "true");
+        registry.add("spring.flyway.baseline-version", () -> "1");
+
+        registry.add("jwt.secret", () -> TEST_JWT_SECRET);
+    }
+
+}

@@ -1,0 +1,28 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: config-server
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: file:///D:/erp-config
+  security:
+    user:
+      name: ${CONFIG_SERVER_USERNAME:configadmin}
+      password: ${CONFIG_SERVER_PASSWORD:erp-config-server-2024-secret}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/

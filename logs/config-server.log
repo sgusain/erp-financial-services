@@ -1,0 +1,245 @@
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/C:/Program%20Files/apache-maven-3.9.11/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2026-09-08T18:05:42.195+05:30  INFO 17264 --- [config-server] [           main] com.erp.config.ConfigServerApplication   : Starting ConfigServerApplication using Java 25.0.2 with PID 17264 (D:\erp-financial-services\config-server\target\classes started by Admin in D:\erp-financial-services\config-server)
+2026-09-08T18:05:42.197+05:30  INFO 17264 --- [config-server] [           main] com.erp.config.ConfigServerApplication   : The following 1 profile is active: "native"
+2026-09-08T18:05:43.346+05:30  INFO 17264 --- [config-server] [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=3af3cbb1-b447-3386-aaf4-d81675a4a53f
+2026-09-08T18:05:43.414+05:30  WARN 17264 --- [config-server] [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2026-09-08T18:05:43.416+05:30  WARN 17264 --- [config-server] [           main] trationDelegate$BeanPostProcessorChecker : Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by org.apache.tomcat.jni.Library in an unnamed module (file:/D:/caches/m2-repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.20/tomcat-embed-core-10.1.20.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+2026-09-08T18:05:43.623+05:30  INFO 17264 --- [config-server] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8888 (http)
+2026-09-08T18:05:43.634+05:30  INFO 17264 --- [config-server] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-09-08T18:05:43.634+05:30  INFO 17264 --- [config-server] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2026-09-08T18:05:43.694+05:30  INFO 17264 --- [config-server] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-09-08T18:05:43.695+05:30  INFO 17264 --- [config-server] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1432 ms
+2026-09-08T18:05:44.531+05:30  INFO 17264 --- [config-server] [           main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-09-08T18:05:44.729+05:30  WARN 17264 --- [config-server] [           main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-09-08T18:05:44.740+05:30  INFO 17264 --- [config-server] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2026-09-08T18:05:44.785+05:30  INFO 17264 --- [config-server] [           main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2026-09-08T18:05:44.881+05:30  INFO 17264 --- [config-server] [           main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2026-09-08T18:05:44.885+05:30  INFO 17264 --- [config-server] [           main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T18:05:44.903+05:30  INFO 17264 --- [config-server] [           main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2026-09-08T18:05:44.903+05:30  INFO 17264 --- [config-server] [           main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2026-09-08T18:05:44.903+05:30  INFO 17264 --- [config-server] [           main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2026-09-08T18:05:44.903+05:30  INFO 17264 --- [config-server] [           main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2026-09-08T18:05:44.903+05:30  INFO 17264 --- [config-server] [           main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2026-09-08T18:05:44.903+05:30  INFO 17264 --- [config-server] [           main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2026-09-08T18:05:44.903+05:30  INFO 17264 --- [config-server] [           main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2026-09-08T18:05:45.250+05:30  INFO 17264 --- [config-server] [           main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2026-09-08T18:05:45.251+05:30  INFO 17264 --- [config-server] [           main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2026-09-08T18:05:45.253+05:30  INFO 17264 --- [config-server] [           main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-09-08T18:05:45.259+05:30  INFO 17264 --- [config-server] [           main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1788870945257 with initial instances count: 0
+2026-09-08T18:05:45.260+05:30  INFO 17264 --- [config-server] [           main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application CONFIG-SERVER with eureka with status UP
+2026-09-08T18:05:45.261+05:30  INFO 17264 --- [config-server] [           main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1788870945261, current=UP, previous=STARTING]
+2026-09-08T18:05:45.262+05:30  INFO 17264 --- [config-server] [nfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CONFIG-SERVER/DESKTOP-TBQ83EI.mshome.net:config-server:8888: registering service...
+2026-09-08T18:05:45.278+05:30  INFO 17264 --- [config-server] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8888 (http) with context path ''
+2026-09-08T18:05:45.279+05:30  INFO 17264 --- [config-server] [           main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8888
+2026-09-08T18:05:45.304+05:30  INFO 17264 --- [config-server] [           main] com.erp.config.ConfigServerApplication   : Started ConfigServerApplication in 3.654 seconds (process running for 4.06)
+2026-09-08T18:05:45.370+05:30  INFO 17264 --- [config-server] [nfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CONFIG-SERVER/DESKTOP-TBQ83EI.mshome.net:config-server:8888 - registration status: 204
+2026-09-08T18:05:45.417+05:30  INFO 17264 --- [config-server] [nio-8888-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-09-08T18:05:45.417+05:30  INFO 17264 --- [config-server] [nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-09-08T18:05:45.419+05:30  INFO 17264 --- [config-server] [nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2026-09-08T18:05:45.476+05:30  INFO 17264 --- [config-server] [nio-8888-exec-1] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [D:\erp-config\application.yml]' via location 'file:///D:/erp-config/'
+2026-09-08T18:05:45.570+05:30  INFO 17264 --- [config-server] [nio-8888-exec-2] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [D:\erp-config\application.yml]' via location 'file:///D:/erp-config/'
+2026-09-08T18:05:58.145+05:30  INFO 17264 --- [config-server] [nio-8888-exec-5] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [D:\erp-config\api-gateway.yml]' via location 'file:///D:/erp-config/'
+2026-09-08T18:05:58.145+05:30  INFO 17264 --- [config-server] [nio-8888-exec-5] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [D:\erp-config\application.yml]' via location 'file:///D:/erp-config/'
+2026-09-08T18:06:04.614+05:30  INFO 17264 --- [config-server] [nio-8888-exec-4] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [D:\erp-config\ACCOUNT-SERVICE.yml]' via location 'file:///D:/erp-config/'
+2026-09-08T18:06:04.615+05:30  INFO 17264 --- [config-server] [nio-8888-exec-4] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [D:\erp-config\application.yml]' via location 'file:///D:/erp-config/'
+2026-09-08T18:06:11.872+05:30  INFO 17264 --- [config-server] [nio-8888-exec-6] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [D:\erp-config\TRANSACTION-SERVICE.yml]' via location 'file:///D:/erp-config/'
+2026-09-08T18:06:11.873+05:30  INFO 17264 --- [config-server] [nio-8888-exec-6] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [D:\erp-config\application.yml]' via location 'file:///D:/erp-config/'
+2026-09-08T18:06:12.042+05:30  INFO 17264 --- [config-server] [nio-8888-exec-7] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [D:\erp-config\BUDGET-SERVICE.yml]' via location 'file:///D:/erp-config/'
+2026-09-08T18:06:12.043+05:30  INFO 17264 --- [config-server] [nio-8888-exec-7] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [D:\erp-config\application.yml]' via location 'file:///D:/erp-config/'
+2026-09-08T18:06:15.274+05:30  INFO 17264 --- [config-server] [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2026-09-08T18:06:15.274+05:30  INFO 17264 --- [config-server] [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2026-09-08T18:06:15.274+05:30  INFO 17264 --- [config-server] [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2026-09-08T18:06:15.274+05:30  INFO 17264 --- [config-server] [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2026-09-08T18:06:15.274+05:30  INFO 17264 --- [config-server] [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2026-09-08T18:06:15.274+05:30  INFO 17264 --- [config-server] [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Application version is -1: false
+2026-09-08T18:06:15.274+05:30  INFO 17264 --- [config-server] [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2026-09-08T18:06:15.318+05:30  INFO 17264 --- [config-server] [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2026-09-08T18:06:15.553+05:30  INFO 17264 --- [config-server] [nio-8888-exec-8] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [D:\erp-config\USER-SERVICE.yml]' via location 'file:///D:/erp-config/'
+2026-09-08T18:06:15.553+05:30  INFO 17264 --- [config-server] [nio-8888-exec-8] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [D:\erp-config\application.yml]' via location 'file:///D:/erp-config/'
+2026-09-08T18:06:20.268+05:30  INFO 17264 --- [config-server] [io-8888-exec-10] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [D:\erp-config\NOTIFICATION-SERVICE.yml]' via location 'file:///D:/erp-config/'
+2026-09-08T18:06:20.268+05:30  INFO 17264 --- [config-server] [io-8888-exec-10] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [D:\erp-config\application.yml]' via location 'file:///D:/erp-config/'
+2026-09-08T18:10:44.905+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T18:13:26.909+05:30  INFO 17264 --- [config-server] [nio-8888-exec-6] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [D:\erp-config\ACCOUNT-SERVICE.yml]' via location 'file:///D:/erp-config/'
+2026-09-08T18:13:26.909+05:30  INFO 17264 --- [config-server] [nio-8888-exec-6] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [D:\erp-config\application.yml]' via location 'file:///D:/erp-config/'
+2026-09-08T18:13:32.225+05:30  INFO 17264 --- [config-server] [nio-8888-exec-7] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [D:\erp-config\BUDGET-SERVICE.yml]' via location 'file:///D:/erp-config/'
+2026-09-08T18:13:32.225+05:30  INFO 17264 --- [config-server] [nio-8888-exec-7] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [D:\erp-config\application.yml]' via location 'file:///D:/erp-config/'
+2026-09-08T18:13:36.685+05:30  INFO 17264 --- [config-server] [nio-8888-exec-8] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [D:\erp-config\TRANSACTION-SERVICE.yml]' via location 'file:///D:/erp-config/'
+2026-09-08T18:13:36.685+05:30  INFO 17264 --- [config-server] [nio-8888-exec-8] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [D:\erp-config\application.yml]' via location 'file:///D:/erp-config/'
+2026-09-08T18:13:39.429+05:30  INFO 17264 --- [config-server] [nio-8888-exec-9] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [D:\erp-config\USER-SERVICE.yml]' via location 'file:///D:/erp-config/'
+2026-09-08T18:13:39.429+05:30  INFO 17264 --- [config-server] [nio-8888-exec-9] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [D:\erp-config\application.yml]' via location 'file:///D:/erp-config/'
+2026-09-08T18:13:43.069+05:30  INFO 17264 --- [config-server] [io-8888-exec-10] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [D:\erp-config\NOTIFICATION-SERVICE.yml]' via location 'file:///D:/erp-config/'
+2026-09-08T18:13:43.069+05:30  INFO 17264 --- [config-server] [io-8888-exec-10] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [D:\erp-config\application.yml]' via location 'file:///D:/erp-config/'
+2026-09-08T18:15:44.906+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T18:20:44.907+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T18:25:44.909+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T18:30:44.918+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T18:33:34.691+05:30  INFO 17264 --- [config-server] [nio-8888-exec-6] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [D:\erp-config\BUDGET-SERVICE.yml]' via location 'file:///D:/erp-config/'
+2026-09-08T18:33:34.691+05:30  INFO 17264 --- [config-server] [nio-8888-exec-6] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [D:\erp-config\application.yml]' via location 'file:///D:/erp-config/'
+2026-09-08T18:35:44.933+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T18:40:44.936+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T18:45:44.945+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T18:50:44.960+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T18:55:44.969+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:00:44.974+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:05:44.977+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:10:44.983+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:15:44.993+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:20:44.998+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:25:44.999+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:30:45.005+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:35:45.012+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:40:45.022+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:45:45.032+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:50:45.032+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:55:45.037+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:00:45.047+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:05:45.052+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:10:45.063+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:15:45.065+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:20:45.080+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:25:45.083+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:30:45.085+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:35:45.094+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:40:45.095+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:45:45.100+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:50:45.109+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:55:45.118+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:00:45.126+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:05:45.137+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:10:45.153+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:15:45.172+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:20:45.185+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:25:45.205+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:30:45.221+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:35:45.232+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:40:45.238+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:45:45.255+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:50:45.273+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:55:45.291+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:00:45.304+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:05:45.321+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:10:45.337+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:15:45.354+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:20:45.366+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:25:45.378+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:30:45.390+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:35:45.407+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:40:45.412+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:45:45.417+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:50:45.429+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:55:45.439+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:00:45.449+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:05:45.456+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:10:45.464+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:15:45.471+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:20:45.473+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:25:45.483+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:30:45.496+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:35:45.498+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:40:45.504+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:45:45.513+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:50:45.530+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:55:45.543+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:00:45.549+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:05:45.562+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:10:45.569+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:15:45.573+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:20:45.587+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:25:45.589+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:30:45.591+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:35:45.600+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:40:45.616+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:45:45.624+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:50:45.628+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:55:45.641+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T01:00:45.655+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T01:05:45.663+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T01:10:45.677+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T01:15:45.691+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T01:20:45.706+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T01:25:45.717+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T01:30:45.730+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T01:35:45.736+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T01:40:45.750+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T01:45:45.767+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T01:50:45.770+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T01:55:45.780+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T02:00:45.794+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T02:05:45.808+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T02:10:45.819+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T02:15:45.834+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T02:20:45.838+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T02:25:45.850+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T02:30:45.864+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T02:35:45.869+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T02:40:45.876+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T02:45:45.883+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T02:50:45.885+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T02:55:45.896+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T03:00:45.906+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T03:05:45.911+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T03:10:45.922+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T03:15:45.932+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T03:20:45.936+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T03:25:45.939+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T03:30:45.943+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T03:35:45.949+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T03:40:45.952+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T03:45:45.960+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T03:50:45.973+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T03:55:45.987+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T04:00:46.001+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T04:05:46.013+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T04:10:46.025+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T04:15:46.038+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T04:20:46.040+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T04:25:46.041+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T04:30:46.051+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T04:35:46.059+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T04:40:46.064+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T04:45:46.069+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T04:50:46.078+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T04:55:46.079+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T05:00:46.085+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T05:05:46.092+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T05:10:46.108+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T05:15:46.110+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T05:20:46.119+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T05:25:46.132+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T05:30:46.140+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T05:35:46.156+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T05:40:46.161+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T05:45:46.167+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T05:50:46.181+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T05:55:46.188+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T06:00:46.197+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T06:05:46.199+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T06:10:46.202+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T06:15:46.213+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T06:20:46.230+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T06:25:46.252+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T06:30:46.270+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T06:35:46.287+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T06:40:46.297+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T06:45:46.305+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T06:50:46.311+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T06:55:46.320+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T07:00:46.337+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T07:05:46.349+05:30  INFO 17264 --- [config-server] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration

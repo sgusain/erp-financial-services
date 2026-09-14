@@ -1,0 +1,5 @@
+CREATE DATABASE userdb;
+CREATE DATABASE accountdb;
+CREATE DATABASE budgetdb;
+CREATE DATABASE transactiondb;
+CREATE DATABASE notificationdb;

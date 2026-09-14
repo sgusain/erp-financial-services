@@ -1,0 +1,447 @@
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/C:/Program%20Files/apache-maven-3.9.11/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2026-09-08T12:43:43.428Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] c.e.n.NotificationServiceApplication     : Starting NotificationServiceApplication using Java 25.0.2 with PID 18320 (D:\erp-financial-services\notification-service\target\classes started by Admin in D:\erp-financial-services\notification-service)
+2026-09-08T12:43:43.431Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] c.e.n.NotificationServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+2026-09-08T12:43:43.504Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888
+2026-09-08T12:43:43.505Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=NOTIFICATION-SERVICE, profiles=[default], label=null, version=null, state=null
+2026-09-08T12:43:44.941Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-09-08T12:43:45.188Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 238 ms. Found 1 JPA repository interface.
+2026-09-08T12:43:45.596Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=90e8a878-cdfa-3e53-aa4b-0ac25707e17c
+2026-09-08T12:43:46.233Z  WARN 18320 --- [NOTIFICATION-SERVICE] [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2026-09-08T12:43:46.237Z  WARN 18320 --- [NOTIFICATION-SERVICE] [           main] trationDelegate$BeanPostProcessorChecker : Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by org.apache.tomcat.jni.Library in an unnamed module (file:/D:/caches/m2-repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.20/tomcat-embed-core-10.1.20.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+2026-09-08T12:43:46.774Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8085 (http)
+2026-09-08T12:43:46.788Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-09-08T12:43:46.788Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2026-09-08T12:43:46.872Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-09-08T12:43:46.873Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3365 ms
+2026-09-08T12:43:47.392Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-09-08T12:43:47.462Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2026-09-08T12:43:47.498Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-09-08T12:43:47.790Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-09-08T12:43:47.821Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-09-08T12:43:48.008Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@320770d7
+2026-09-08T12:43:48.010Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-09-08T12:43:49.239Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-08T12:43:49.320Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-09-08T12:43:49.651Z  WARN 18320 --- [NOTIFICATION-SERVICE] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-09-08T12:43:50.500Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-09-08T12:43:50.571Z  WARN 18320 --- [NOTIFICATION-SERVICE] [           main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-09-08T12:43:50.584Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2026-09-08T12:43:50.712Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2026-09-08T12:43:50.806Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2026-09-08T12:43:50.810Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T12:43:50.838Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2026-09-08T12:43:50.838Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2026-09-08T12:43:50.838Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2026-09-08T12:43:50.838Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2026-09-08T12:43:50.839Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2026-09-08T12:43:50.839Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2026-09-08T12:43:50.839Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2026-09-08T12:43:51.188Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2026-09-08T12:43:51.190Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2026-09-08T12:43:51.193Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-09-08T12:43:51.197Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1788871431197 with initial instances count: 2
+2026-09-08T12:43:51.202Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application NOTIFICATION-SERVICE with eureka with status UP
+2026-09-08T12:43:51.203Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1788871431203, current=UP, previous=STARTING]
+2026-09-08T12:43:51.204Z  INFO 18320 --- [NOTIFICATION-SERVICE] [nfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_NOTIFICATION-SERVICE/DESKTOP-TBQ83EI.mshome.net:NOTIFICATION-SERVICE:8085: registering service...
+2026-09-08T12:43:51.222Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8085 (http) with context path ''
+2026-09-08T12:43:51.223Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8085
+2026-09-08T12:43:51.241Z  INFO 18320 --- [NOTIFICATION-SERVICE] [nfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_NOTIFICATION-SERVICE/DESKTOP-TBQ83EI.mshome.net:NOTIFICATION-SERVICE:8085 - registration status: 204
+2026-09-08T12:43:51.282Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = earliest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-erp-notification-group-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = erp-notification-group
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2026-09-08T12:43:51.399Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.6.2
+2026-09-08T12:43:51.399Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: c4deed513057c94e
+2026-09-08T12:43:51.400Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1788871431398
+2026-09-08T12:43:51.412Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] fkaConsumerFactory$ExtendedKafkaConsumer : [Consumer clientId=consumer-erp-notification-group-1, groupId=erp-notification-group] Subscribed to topic(s): budget-events
+2026-09-08T12:43:51.424Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = earliest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-erp-notification-group-2
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = erp-notification-group
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2026-09-08T12:43:51.434Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.6.2
+2026-09-08T12:43:51.434Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: c4deed513057c94e
+2026-09-08T12:43:51.434Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1788871431434
+2026-09-08T12:43:51.441Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] fkaConsumerFactory$ExtendedKafkaConsumer : [Consumer clientId=consumer-erp-notification-group-2, groupId=erp-notification-group] Subscribed to topic(s): transaction-events
+2026-09-08T12:43:51.457Z  INFO 18320 --- [NOTIFICATION-SERVICE] [           main] c.e.n.NotificationServiceApplication     : Started NotificationServiceApplication in 9.629 seconds (process running for 10.496)
+2026-09-08T12:43:51.989Z  INFO 18320 --- [NOTIFICATION-SERVICE] [ntainer#1-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-erp-notification-group-2, groupId=erp-notification-group] Cluster ID: NkAbxWXDRwyRY3LO2yxzlQ
+2026-09-08T12:43:51.992Z  INFO 18320 --- [NOTIFICATION-SERVICE] [ntainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-erp-notification-group-2, groupId=erp-notification-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
+2026-09-08T12:43:51.996Z  INFO 18320 --- [NOTIFICATION-SERVICE] [ntainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-erp-notification-group-2, groupId=erp-notification-group] (Re-)joining group
+2026-09-08T12:43:52.034Z  WARN 18320 --- [NOTIFICATION-SERVICE] [ntainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-erp-notification-group-1, groupId=erp-notification-group] Error while fetching metadata with correlation id 2 : {budget-events=LEADER_NOT_AVAILABLE}
+2026-09-08T12:43:52.034Z  INFO 18320 --- [NOTIFICATION-SERVICE] [ntainer#0-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-erp-notification-group-1, groupId=erp-notification-group] Cluster ID: NkAbxWXDRwyRY3LO2yxzlQ
+2026-09-08T12:43:52.048Z  INFO 18320 --- [NOTIFICATION-SERVICE] [ntainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-erp-notification-group-2, groupId=erp-notification-group] Request joining group due to: need to re-join with the given member-id: consumer-erp-notification-group-2-9e6b4f93-9736-4912-8b7c-63d543f8b23d
+2026-09-08T12:43:52.049Z  INFO 18320 --- [NOTIFICATION-SERVICE] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-erp-notification-group-1, groupId=erp-notification-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
+2026-09-08T12:43:52.049Z  INFO 18320 --- [NOTIFICATION-SERVICE] [ntainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-erp-notification-group-2, groupId=erp-notification-group] Request joining group due to: rebalance failed due to 'The group member needs to have a valid member id before actually entering a consumer group.' (MemberIdRequiredException)
+2026-09-08T12:43:52.049Z  INFO 18320 --- [NOTIFICATION-SERVICE] [ntainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-erp-notification-group-2, groupId=erp-notification-group] (Re-)joining group
+2026-09-08T12:43:52.050Z  INFO 18320 --- [NOTIFICATION-SERVICE] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-erp-notification-group-1, groupId=erp-notification-group] (Re-)joining group
+2026-09-08T12:43:52.068Z  INFO 18320 --- [NOTIFICATION-SERVICE] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-erp-notification-group-1, groupId=erp-notification-group] Request joining group due to: need to re-join with the given member-id: consumer-erp-notification-group-1-2612cec8-280f-4cea-ad01-d209fb3ec2c6
+2026-09-08T12:43:52.069Z  INFO 18320 --- [NOTIFICATION-SERVICE] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-erp-notification-group-1, groupId=erp-notification-group] Request joining group due to: rebalance failed due to 'The group member needs to have a valid member id before actually entering a consumer group.' (MemberIdRequiredException)
+2026-09-08T12:43:52.069Z  INFO 18320 --- [NOTIFICATION-SERVICE] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-erp-notification-group-1, groupId=erp-notification-group] (Re-)joining group
+2026-09-08T12:43:55.071Z  INFO 18320 --- [NOTIFICATION-SERVICE] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-erp-notification-group-1, groupId=erp-notification-group] Successfully joined group with generation Generation{generationId=5, memberId='consumer-erp-notification-group-1-2612cec8-280f-4cea-ad01-d209fb3ec2c6', protocol='range'}
+2026-09-08T12:43:55.075Z  INFO 18320 --- [NOTIFICATION-SERVICE] [ntainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-erp-notification-group-2, groupId=erp-notification-group] Successfully joined group with generation Generation{generationId=5, memberId='consumer-erp-notification-group-2-9e6b4f93-9736-4912-8b7c-63d543f8b23d', protocol='range'}
+2026-09-08T12:43:55.099Z  INFO 18320 --- [NOTIFICATION-SERVICE] [ntainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-erp-notification-group-2, groupId=erp-notification-group] Finished assignment for group at generation 5: {consumer-erp-notification-group-1-2612cec8-280f-4cea-ad01-d209fb3ec2c6=Assignment(partitions=[budget-events-0]), consumer-erp-notification-group-2-9e6b4f93-9736-4912-8b7c-63d543f8b23d=Assignment(partitions=[transaction-events-0])}
+2026-09-08T12:43:55.114Z  INFO 18320 --- [NOTIFICATION-SERVICE] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-erp-notification-group-1, groupId=erp-notification-group] Successfully synced group in generation Generation{generationId=5, memberId='consumer-erp-notification-group-1-2612cec8-280f-4cea-ad01-d209fb3ec2c6', protocol='range'}
+2026-09-08T12:43:55.114Z  INFO 18320 --- [NOTIFICATION-SERVICE] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-erp-notification-group-1, groupId=erp-notification-group] Notifying assignor about the new Assignment(partitions=[budget-events-0])
+2026-09-08T12:43:55.116Z  INFO 18320 --- [NOTIFICATION-SERVICE] [ntainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-erp-notification-group-2, groupId=erp-notification-group] Successfully synced group in generation Generation{generationId=5, memberId='consumer-erp-notification-group-2-9e6b4f93-9736-4912-8b7c-63d543f8b23d', protocol='range'}
+2026-09-08T12:43:55.116Z  INFO 18320 --- [NOTIFICATION-SERVICE] [ntainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-erp-notification-group-2, groupId=erp-notification-group] Notifying assignor about the new Assignment(partitions=[transaction-events-0])
+2026-09-08T12:43:55.117Z  INFO 18320 --- [NOTIFICATION-SERVICE] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-erp-notification-group-1, groupId=erp-notification-group] Adding newly assigned partitions: budget-events-0
+2026-09-08T12:43:55.117Z  INFO 18320 --- [NOTIFICATION-SERVICE] [ntainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-erp-notification-group-2, groupId=erp-notification-group] Adding newly assigned partitions: transaction-events-0
+2026-09-08T12:43:55.133Z  INFO 18320 --- [NOTIFICATION-SERVICE] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-erp-notification-group-1, groupId=erp-notification-group] Found no committed offset for partition budget-events-0
+2026-09-08T12:43:55.134Z  INFO 18320 --- [NOTIFICATION-SERVICE] [ntainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-erp-notification-group-2, groupId=erp-notification-group] Setting offset for partition transaction-events-0 to the committed offset FetchPosition{offset=2, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=0}}
+2026-09-08T12:43:55.135Z  INFO 18320 --- [NOTIFICATION-SERVICE] [ntainer#1-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : erp-notification-group: partitions assigned: [transaction-events-0]
+2026-09-08T12:43:55.151Z  INFO 18320 --- [NOTIFICATION-SERVICE] [ntainer#0-0-C-1] o.a.k.c.c.internals.SubscriptionState    : [Consumer clientId=consumer-erp-notification-group-1, groupId=erp-notification-group] Resetting offset for partition budget-events-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=0}}.
+2026-09-08T12:43:55.151Z  INFO 18320 --- [NOTIFICATION-SERVICE] [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : erp-notification-group: partitions assigned: [budget-events-0]
+2026-09-08T12:48:50.841Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T12:52:52.148Z  INFO 18320 --- [NOTIFICATION-SERVICE] [ntainer#1-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-erp-notification-group-2, groupId=erp-notification-group] Node -1 disconnected.
+2026-09-08T12:52:52.153Z  INFO 18320 --- [NOTIFICATION-SERVICE] [ntainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-erp-notification-group-1, groupId=erp-notification-group] Node -1 disconnected.
+2026-09-08T12:53:50.842Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T12:58:50.854Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T13:03:50.866Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T13:05:15.138Z  INFO 18320 --- [NOTIFICATION-SERVICE] [ntainer#0-0-C-1] c.e.n.kafka.NotificationConsumer         : Received budget event: BudgetEvent(budgetId=1, budgetName=IT Budget, totalAmount=1000.00, spentAmount=1500.00, status=EXCEEDED, timestamp=2026-09-08T13:05:14.681078200)
+2026-09-08T13:05:15.138Z  INFO 18320 --- [NOTIFICATION-SERVICE] [ntainer#0-0-C-1] c.e.n.kafka.NotificationConsumer         : ALERT: Budget IT Budget has been EXCEEDED. Total: 1000.00, Spent: 1500.00 at 2026-09-08T13:05:14.681078200
+2026-09-08T13:08:50.870Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T13:13:50.878Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T13:18:50.894Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T13:23:50.907Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T13:28:50.909Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T13:33:50.910Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T13:38:50.926Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T13:43:50.933Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T13:48:50.938Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T13:53:50.941Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T13:58:50.947Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T14:03:50.959Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T14:08:50.970Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T14:13:50.971Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T14:18:50.982Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T14:23:50.984Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T14:28:50.985Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T14:33:50.986Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T14:38:50.999Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T14:43:51.013Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T14:48:51.022Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T14:53:51.036Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T14:58:51.048Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T15:03:51.056Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T15:08:51.068Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T15:13:51.076Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T15:18:51.089Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T15:23:51.094Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T15:28:51.099Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T15:33:51.109Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T15:38:51.118Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T15:43:51.131Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T15:48:51.143Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T15:53:51.159Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T15:58:51.166Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T16:03:51.179Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T16:08:51.200Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T16:13:51.211Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T16:18:51.229Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T16:23:51.240Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T16:28:51.254Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T16:33:51.259Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T16:38:51.277Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T16:43:51.291Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T16:48:51.308Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T16:53:51.326Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T16:58:51.343Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T17:03:51.357Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T17:08:51.359Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T17:13:51.377Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T17:18:51.383Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T17:23:51.391Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T17:28:51.404Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T17:33:51.412Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T17:38:51.424Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T17:43:51.435Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T17:48:51.449Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T17:53:51.452Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T17:58:51.461Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T18:03:51.472Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T18:08:51.476Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T18:13:51.487Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T18:18:51.499Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T18:23:51.510Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T18:28:51.520Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T18:33:51.534Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T18:38:51.543Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T18:43:51.546Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T18:48:51.558Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T18:53:51.564Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T18:58:51.571Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:03:51.585Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:08:51.587Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:13:51.588Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:18:51.597Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:23:51.600Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:28:51.606Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:33:51.614Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:38:51.623Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:43:51.624Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:48:51.637Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:53:51.647Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:58:51.663Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:03:51.677Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:08:51.688Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:13:51.695Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:18:51.700Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:23:51.716Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:28:51.718Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:33:51.731Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:38:51.738Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:43:51.739Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:48:51.744Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:53:51.746Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:58:51.750Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:03:51.759Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:08:51.770Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:13:51.781Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:18:51.795Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:23:51.799Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:28:51.803Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:33:51.818Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:38:51.820Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:43:51.833Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:48:51.839Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:53:51.845Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:58:51.859Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:03:51.867Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:08:51.878Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:13:51.882Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:18:51.887Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:23:51.898Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:28:51.910Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:33:51.914Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:38:51.921Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:43:51.929Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:48:51.941Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:53:51.943Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:58:51.946Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:03:51.954Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:08:51.965Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:13:51.970Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:18:51.985Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:23:51.987Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:28:52.000Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:33:52.012Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:38:52.026Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:43:52.035Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:48:52.044Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:53:52.045Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:58:52.051Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:03:52.058Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:08:52.064Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:13:52.067Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:18:52.084Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:23:52.086Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:28:52.090Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:33:52.098Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:38:52.112Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:43:52.126Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:48:52.141Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:53:52.159Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:58:52.178Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T01:03:52.197Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T01:08:52.217Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T01:13:52.235Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T01:18:52.248Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T01:23:52.254Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T01:28:52.263Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T01:33:52.271Z  INFO 18320 --- [NOTIFICATION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration

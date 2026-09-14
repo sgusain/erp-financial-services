@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: ACCOUNT-SERVICE
+  config:
+    import: configserver:${CONFIG_SERVER_URL:http://localhost:8888}
+  cloud:
+    config:
+      username: ${CONFIG_SERVER_USERNAME:configadmin}
+      password: ${CONFIG_SERVER_PASSWORD:erp-config-server-2024-secret}

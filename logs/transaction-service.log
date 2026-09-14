@@ -1,0 +1,220 @@
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/C:/Program%20Files/apache-maven-3.9.11/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2026-09-08T12:43:37.348Z  INFO 20108 --- [TRANSACTION-SERVICE] [           main] c.e.t.TransactionServiceApplication      : Starting TransactionServiceApplication using Java 25.0.2 with PID 20108 (D:\erp-financial-services\transaction-service\target\classes started by Admin in D:\erp-financial-services\transaction-service)
+2026-09-08T12:43:37.352Z  INFO 20108 --- [TRANSACTION-SERVICE] [           main] c.e.t.TransactionServiceApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-09-08T12:43:37.468Z  INFO 20108 --- [TRANSACTION-SERVICE] [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888
+2026-09-08T12:43:37.468Z  INFO 20108 --- [TRANSACTION-SERVICE] [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=TRANSACTION-SERVICE, profiles=[default], label=null, version=null, state=null
+2026-09-08T12:43:39.721Z  INFO 20108 --- [TRANSACTION-SERVICE] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-09-08T12:43:40.114Z  INFO 20108 --- [TRANSACTION-SERVICE] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 380 ms. Found 1 JPA repository interface.
+2026-09-08T12:43:40.702Z  INFO 20108 --- [TRANSACTION-SERVICE] [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=525785e2-59da-323c-9eac-c047135b42af
+2026-09-08T12:43:41.415Z  WARN 20108 --- [TRANSACTION-SERVICE] [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2026-09-08T12:43:41.421Z  WARN 20108 --- [TRANSACTION-SERVICE] [           main] trationDelegate$BeanPostProcessorChecker : Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by org.apache.tomcat.jni.Library in an unnamed module (file:/D:/caches/m2-repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.20/tomcat-embed-core-10.1.20.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+2026-09-08T12:43:42.087Z  INFO 20108 --- [TRANSACTION-SERVICE] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8084 (http)
+2026-09-08T12:43:42.120Z  INFO 20108 --- [TRANSACTION-SERVICE] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-09-08T12:43:42.122Z  INFO 20108 --- [TRANSACTION-SERVICE] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2026-09-08T12:43:42.253Z  INFO 20108 --- [TRANSACTION-SERVICE] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-09-08T12:43:42.254Z  INFO 20108 --- [TRANSACTION-SERVICE] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4778 ms
+2026-09-08T12:43:42.888Z  INFO 20108 --- [TRANSACTION-SERVICE] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-09-08T12:43:42.956Z  INFO 20108 --- [TRANSACTION-SERVICE] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2026-09-08T12:43:43.001Z  INFO 20108 --- [TRANSACTION-SERVICE] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-09-08T12:43:43.418Z  INFO 20108 --- [TRANSACTION-SERVICE] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-09-08T12:43:43.462Z  INFO 20108 --- [TRANSACTION-SERVICE] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-09-08T12:43:43.715Z  INFO 20108 --- [TRANSACTION-SERVICE] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@32f14274
+2026-09-08T12:43:43.717Z  INFO 20108 --- [TRANSACTION-SERVICE] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-09-08T12:43:45.203Z  INFO 20108 --- [TRANSACTION-SERVICE] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-08T12:43:45.312Z  INFO 20108 --- [TRANSACTION-SERVICE] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-09-08T12:43:46.068Z  WARN 20108 --- [TRANSACTION-SERVICE] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-09-08T12:43:47.456Z  INFO 20108 --- [TRANSACTION-SERVICE] [           main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-09-08T12:43:47.535Z  WARN 20108 --- [TRANSACTION-SERVICE] [           main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-09-08T12:43:47.550Z  INFO 20108 --- [TRANSACTION-SERVICE] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2026-09-08T12:43:47.654Z  INFO 20108 --- [TRANSACTION-SERVICE] [           main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2026-09-08T12:43:47.770Z  INFO 20108 --- [TRANSACTION-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2026-09-08T12:43:47.775Z  INFO 20108 --- [TRANSACTION-SERVICE] [           main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T12:43:47.802Z  INFO 20108 --- [TRANSACTION-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2026-09-08T12:43:47.802Z  INFO 20108 --- [TRANSACTION-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2026-09-08T12:43:47.802Z  INFO 20108 --- [TRANSACTION-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2026-09-08T12:43:47.802Z  INFO 20108 --- [TRANSACTION-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2026-09-08T12:43:47.802Z  INFO 20108 --- [TRANSACTION-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2026-09-08T12:43:47.803Z  INFO 20108 --- [TRANSACTION-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2026-09-08T12:43:47.803Z  INFO 20108 --- [TRANSACTION-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2026-09-08T12:43:48.157Z  INFO 20108 --- [TRANSACTION-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2026-09-08T12:43:48.161Z  INFO 20108 --- [TRANSACTION-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2026-09-08T12:43:48.164Z  INFO 20108 --- [TRANSACTION-SERVICE] [           main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-09-08T12:43:48.170Z  INFO 20108 --- [TRANSACTION-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1788871428170 with initial instances count: 2
+2026-09-08T12:43:48.179Z  INFO 20108 --- [TRANSACTION-SERVICE] [           main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application TRANSACTION-SERVICE with eureka with status UP
+2026-09-08T12:43:48.180Z  INFO 20108 --- [TRANSACTION-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1788871428180, current=UP, previous=STARTING]
+2026-09-08T12:43:48.182Z  INFO 20108 --- [TRANSACTION-SERVICE] [nfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_TRANSACTION-SERVICE/DESKTOP-TBQ83EI.mshome.net:TRANSACTION-SERVICE:8084: registering service...
+2026-09-08T12:43:48.209Z  INFO 20108 --- [TRANSACTION-SERVICE] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8084 (http) with context path ''
+2026-09-08T12:43:48.210Z  INFO 20108 --- [TRANSACTION-SERVICE] [           main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8084
+2026-09-08T12:43:48.242Z  INFO 20108 --- [TRANSACTION-SERVICE] [nfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_TRANSACTION-SERVICE/DESKTOP-TBQ83EI.mshome.net:TRANSACTION-SERVICE:8084 - registration status: 204
+2026-09-08T12:43:48.248Z  INFO 20108 --- [TRANSACTION-SERVICE] [           main] c.e.t.TransactionServiceApplication      : Started TransactionServiceApplication in 13.7 seconds (process running for 15.449)
+2026-09-08T12:48:47.805Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T12:53:47.807Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T12:58:47.807Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T13:03:47.809Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T13:08:47.819Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T13:13:47.832Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T13:18:47.847Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T13:23:47.858Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T13:28:47.864Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T13:33:47.869Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T13:38:47.876Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T13:43:47.885Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T13:48:47.893Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T13:53:47.899Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T13:58:47.907Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T14:03:47.923Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T14:08:47.938Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T14:13:47.942Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T14:18:47.947Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T14:23:47.953Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T14:28:47.969Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T14:33:47.979Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T14:38:47.992Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T14:43:48.005Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T14:48:48.007Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T14:53:48.010Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T14:58:48.011Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T15:03:48.014Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T15:08:48.023Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T15:13:48.040Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T15:18:48.048Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T15:23:48.054Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T15:28:48.059Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T15:33:48.075Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T15:38:48.093Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T15:43:48.105Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T15:48:48.120Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T15:53:48.134Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T15:58:48.150Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T16:03:48.170Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T16:08:48.189Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T16:13:48.205Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T16:18:48.221Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T16:23:48.239Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T16:28:48.258Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T16:33:48.269Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T16:38:48.273Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T16:43:48.278Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T16:48:48.286Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T16:53:48.302Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T16:58:48.315Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T17:03:48.321Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T17:08:48.332Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T17:13:48.343Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T17:18:48.346Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T17:23:48.359Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T17:28:48.367Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T17:33:48.372Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T17:38:48.377Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T17:43:48.391Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T17:48:48.406Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T17:53:48.417Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T17:58:48.427Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T18:03:48.431Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T18:08:48.438Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T18:13:48.455Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T18:18:48.470Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T18:23:48.480Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T18:28:48.482Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T18:33:48.492Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T18:38:48.498Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T18:43:48.504Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T18:48:48.507Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T18:53:48.509Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T18:58:48.512Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:03:48.514Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:08:48.519Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:13:48.531Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:18:48.533Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:23:48.547Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:28:48.553Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:33:48.554Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:38:48.569Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:43:48.579Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:48:48.586Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:53:48.597Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:58:48.610Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:03:48.625Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:08:48.635Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:13:48.637Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:18:48.647Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:23:48.656Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:28:48.658Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:33:48.660Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:38:48.668Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:43:48.682Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:48:48.683Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:53:48.696Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:58:48.704Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:03:48.714Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:08:48.724Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:13:48.740Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:18:48.747Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:23:48.757Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:28:48.763Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:33:48.772Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:38:48.780Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:43:48.796Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:48:48.811Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:53:48.823Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:58:48.835Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:03:48.838Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:08:48.840Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:13:48.854Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:18:48.856Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:23:48.863Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:28:48.869Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:33:48.874Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:38:48.879Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:43:48.885Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:48:48.891Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:53:48.896Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:58:48.903Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:03:48.911Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:08:48.918Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:13:48.930Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:18:48.931Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:23:48.943Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:28:48.951Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:33:48.957Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:38:48.970Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:43:48.983Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:48:49.000Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:53:49.002Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:58:49.011Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:03:49.014Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:08:49.026Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:13:49.029Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:18:49.033Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:23:49.036Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:28:49.050Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:33:49.057Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:38:49.060Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:43:49.076Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:48:49.094Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:53:49.104Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:58:49.113Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T01:03:49.120Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T01:08:49.135Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T01:13:49.145Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T01:18:49.151Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T01:23:49.156Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T01:28:49.170Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T01:33:49.181Z  INFO 20108 --- [TRANSACTION-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration

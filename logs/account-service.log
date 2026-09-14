@@ -1,0 +1,220 @@
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/C:/Program%20Files/apache-maven-3.9.11/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2026-09-08T12:43:27.328Z  INFO 20172 --- [ACCOUNT-SERVICE] [           main] c.erp.account.AccountServiceApplication  : Starting AccountServiceApplication using Java 25.0.2 with PID 20172 (D:\erp-financial-services\account-service\target\classes started by Admin in D:\erp-financial-services\account-service)
+2026-09-08T12:43:27.330Z  INFO 20172 --- [ACCOUNT-SERVICE] [           main] c.erp.account.AccountServiceApplication  : No active profile set, falling back to 1 default profile: "default"
+2026-09-08T12:43:27.416Z  INFO 20172 --- [ACCOUNT-SERVICE] [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888
+2026-09-08T12:43:27.417Z  INFO 20172 --- [ACCOUNT-SERVICE] [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=ACCOUNT-SERVICE, profiles=[default], label=null, version=null, state=null
+2026-09-08T12:43:30.126Z  INFO 20172 --- [ACCOUNT-SERVICE] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-09-08T12:43:30.520Z  INFO 20172 --- [ACCOUNT-SERVICE] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 377 ms. Found 1 JPA repository interface.
+2026-09-08T12:43:31.228Z  INFO 20172 --- [ACCOUNT-SERVICE] [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=a674d3b8-f310-3baf-b6ee-238be9285e62
+2026-09-08T12:43:31.998Z  WARN 20172 --- [ACCOUNT-SERVICE] [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2026-09-08T12:43:32.002Z  WARN 20172 --- [ACCOUNT-SERVICE] [           main] trationDelegate$BeanPostProcessorChecker : Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by org.apache.tomcat.jni.Library in an unnamed module (file:/D:/caches/m2-repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.20/tomcat-embed-core-10.1.20.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+2026-09-08T12:43:33.078Z  INFO 20172 --- [ACCOUNT-SERVICE] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2026-09-08T12:43:33.163Z  INFO 20172 --- [ACCOUNT-SERVICE] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-09-08T12:43:33.164Z  INFO 20172 --- [ACCOUNT-SERVICE] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2026-09-08T12:43:33.338Z  INFO 20172 --- [ACCOUNT-SERVICE] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-09-08T12:43:33.340Z  INFO 20172 --- [ACCOUNT-SERVICE] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5920 ms
+2026-09-08T12:43:34.887Z  INFO 20172 --- [ACCOUNT-SERVICE] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-09-08T12:43:35.029Z  INFO 20172 --- [ACCOUNT-SERVICE] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2026-09-08T12:43:35.116Z  INFO 20172 --- [ACCOUNT-SERVICE] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-09-08T12:43:36.008Z  INFO 20172 --- [ACCOUNT-SERVICE] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-09-08T12:43:36.108Z  INFO 20172 --- [ACCOUNT-SERVICE] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-09-08T12:43:36.500Z  INFO 20172 --- [ACCOUNT-SERVICE] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7ac90dab
+2026-09-08T12:43:36.502Z  INFO 20172 --- [ACCOUNT-SERVICE] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-09-08T12:43:38.761Z  INFO 20172 --- [ACCOUNT-SERVICE] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-08T12:43:38.927Z  INFO 20172 --- [ACCOUNT-SERVICE] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-09-08T12:43:39.689Z  WARN 20172 --- [ACCOUNT-SERVICE] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-09-08T12:43:41.461Z  INFO 20172 --- [ACCOUNT-SERVICE] [           main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-09-08T12:43:41.590Z  WARN 20172 --- [ACCOUNT-SERVICE] [           main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-09-08T12:43:41.622Z  INFO 20172 --- [ACCOUNT-SERVICE] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2026-09-08T12:43:41.826Z  INFO 20172 --- [ACCOUNT-SERVICE] [           main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2026-09-08T12:43:42.041Z  INFO 20172 --- [ACCOUNT-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2026-09-08T12:43:42.051Z  INFO 20172 --- [ACCOUNT-SERVICE] [           main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T12:43:42.120Z  INFO 20172 --- [ACCOUNT-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2026-09-08T12:43:42.120Z  INFO 20172 --- [ACCOUNT-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2026-09-08T12:43:42.120Z  INFO 20172 --- [ACCOUNT-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2026-09-08T12:43:42.121Z  INFO 20172 --- [ACCOUNT-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2026-09-08T12:43:42.122Z  INFO 20172 --- [ACCOUNT-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2026-09-08T12:43:42.122Z  INFO 20172 --- [ACCOUNT-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2026-09-08T12:43:42.122Z  INFO 20172 --- [ACCOUNT-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2026-09-08T12:43:42.617Z  INFO 20172 --- [ACCOUNT-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2026-09-08T12:43:42.620Z  INFO 20172 --- [ACCOUNT-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2026-09-08T12:43:42.624Z  INFO 20172 --- [ACCOUNT-SERVICE] [           main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-09-08T12:43:42.631Z  INFO 20172 --- [ACCOUNT-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1788871422630 with initial instances count: 2
+2026-09-08T12:43:42.640Z  INFO 20172 --- [ACCOUNT-SERVICE] [           main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application ACCOUNT-SERVICE with eureka with status UP
+2026-09-08T12:43:42.641Z  INFO 20172 --- [ACCOUNT-SERVICE] [           main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1788871422641, current=UP, previous=STARTING]
+2026-09-08T12:43:42.644Z  INFO 20172 --- [ACCOUNT-SERVICE] [nfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ACCOUNT-SERVICE/DESKTOP-TBQ83EI.mshome.net:ACCOUNT-SERVICE:8082: registering service...
+2026-09-08T12:43:42.674Z  INFO 20172 --- [ACCOUNT-SERVICE] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path ''
+2026-09-08T12:43:42.675Z  INFO 20172 --- [ACCOUNT-SERVICE] [           main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8082
+2026-09-08T12:43:42.716Z  INFO 20172 --- [ACCOUNT-SERVICE] [nfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ACCOUNT-SERVICE/DESKTOP-TBQ83EI.mshome.net:ACCOUNT-SERVICE:8082 - registration status: 204
+2026-09-08T12:43:42.720Z  INFO 20172 --- [ACCOUNT-SERVICE] [           main] c.erp.account.AccountServiceApplication  : Started AccountServiceApplication in 17.518 seconds (process running for 18.14)
+2026-09-08T12:48:42.124Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T12:53:42.126Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T12:58:42.128Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T13:03:42.129Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T13:08:42.140Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T13:13:42.148Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T13:18:42.155Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T13:23:42.166Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T13:28:42.173Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T13:33:42.175Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T13:38:42.182Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T13:43:42.183Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T13:48:42.197Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T13:53:42.199Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T13:58:42.200Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T14:03:42.214Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T14:08:42.220Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T14:13:42.234Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T14:18:42.235Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T14:23:42.240Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T14:28:42.246Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T14:33:42.250Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T14:38:42.254Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T14:43:42.269Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T14:48:42.274Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T14:53:42.281Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T14:58:42.283Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T15:03:42.289Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T15:08:42.301Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T15:13:42.317Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T15:18:42.330Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T15:23:42.343Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T15:28:42.357Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T15:33:42.366Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T15:38:42.374Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T15:43:42.394Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T15:48:42.403Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T15:53:42.419Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T15:58:42.430Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T16:03:42.446Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T16:08:42.462Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T16:13:42.472Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T16:18:42.482Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T16:23:42.496Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T16:28:42.502Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T16:33:42.510Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T16:38:42.521Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T16:43:42.526Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T16:48:42.543Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T16:53:42.546Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T16:58:42.554Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T17:03:42.558Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T17:08:42.567Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T17:13:42.572Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T17:18:42.583Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T17:23:42.597Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T17:28:42.603Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T17:33:42.611Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T17:38:42.627Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T17:43:42.636Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T17:48:42.649Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T17:53:42.656Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T17:58:42.670Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T18:03:42.681Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T18:08:42.690Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T18:13:42.705Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T18:18:42.714Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T18:23:42.716Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T18:28:42.730Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T18:33:42.737Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T18:38:42.747Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T18:43:42.748Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T18:48:42.753Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T18:53:42.767Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T18:58:42.772Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:03:42.783Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:08:42.784Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:13:42.798Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:18:42.799Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:23:42.807Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:28:42.813Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:33:42.814Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:38:42.827Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:43:42.831Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:48:42.839Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:53:42.853Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T19:58:42.861Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:03:42.872Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:08:42.878Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:13:42.889Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:18:42.903Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:23:42.917Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:28:42.930Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:33:42.939Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:38:42.953Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:43:42.967Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:48:42.980Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:53:42.996Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T20:58:43.004Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:03:43.010Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:08:43.022Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:13:43.025Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:18:43.037Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:23:43.043Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:28:43.056Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:33:43.059Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:38:43.069Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:43:43.079Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:48:43.092Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:53:43.108Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T21:58:43.116Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:03:43.125Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:08:43.133Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:13:43.146Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:18:43.156Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:23:43.171Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:28:43.185Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:33:43.193Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:38:43.197Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:43:43.204Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:48:43.219Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:53:43.220Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T22:58:43.231Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:03:43.240Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:08:43.247Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:13:43.251Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:18:43.260Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:23:43.263Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:28:43.272Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:33:43.282Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:38:43.288Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:43:43.293Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:48:43.302Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:53:43.317Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-08T23:58:43.320Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:03:43.324Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:08:43.338Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:13:43.349Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:18:43.360Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:23:43.372Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:28:43.384Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:33:43.394Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:38:43.407Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:43:43.420Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:48:43.435Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:53:43.452Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T00:58:43.467Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T01:03:43.483Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T01:08:43.499Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T01:13:43.519Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T01:18:43.536Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T01:23:43.555Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T01:28:43.563Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-09T01:33:43.576Z  INFO 20172 --- [ACCOUNT-SERVICE] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
