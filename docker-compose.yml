@@ -88,7 +88,7 @@ services:
     image: ${ECR_REGISTRY:-160184161543.dkr.ecr.us-east-1.amazonaws.com}/erp-eureka-server:latest
     container_name: erp-eureka-server
     environment:
-      LOGGING_FILE_PATH: /tmp
+      LOGGING_FILE_PATH: /app/logs
     networks:
       - erp-network
     restart: unless-stopped
@@ -107,7 +107,7 @@ services:
       # pointed at here.
       SPRING_CLOUD_CONFIG_SERVER_NATIVE_SEARCHLOCATIONS: file:///app/erp-config
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka/
-      LOGGING_FILE_PATH: /tmp
+      LOGGING_FILE_PATH: /app/logs
     volumes:
       - ./erp-config:/app/erp-config:ro
     networks:
@@ -151,7 +151,7 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/userdb?TimeZone=UTC
       SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
       JWT_SECRET: ${JWT_SECRET}
-      LOGGING_FILE_PATH: /tmp
+      LOGGING_FILE_PATH: /app/logs
     networks:
       - erp-network
     restart: unless-stopped
@@ -176,7 +176,7 @@ services:
       CONFIG_SERVER_PASSWORD: ${CONFIG_SERVER_PASSWORD}
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/accountdb?TimeZone=UTC
       SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
-      LOGGING_FILE_PATH: /tmp
+      LOGGING_FILE_PATH: /app/logs
     networks:
       - erp-network
     restart: unless-stopped
@@ -204,7 +204,7 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/budgetdb?TimeZone=UTC
       SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:29092
-      LOGGING_FILE_PATH: /tmp
+      LOGGING_FILE_PATH: /app/logs
     networks:
       - erp-network
     restart: unless-stopped
@@ -232,7 +232,7 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/transactiondb?TimeZone=UTC
       SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:29092
-      LOGGING_FILE_PATH: /tmp
+      LOGGING_FILE_PATH: /app/logs
     networks:
       - erp-network
     restart: unless-stopped
@@ -260,7 +260,7 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/notificationdb?TimeZone=UTC
       SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:29092
-      LOGGING_FILE_PATH: /tmp
+      LOGGING_FILE_PATH: /app/logs
     networks:
       - erp-network
     restart: unless-stopped
@@ -286,7 +286,7 @@ services:
       CONFIG_SERVER_USERNAME: ${CONFIG_SERVER_USERNAME}
       CONFIG_SERVER_PASSWORD: ${CONFIG_SERVER_PASSWORD}
       JWT_SECRET: ${JWT_SECRET}
-      LOGGING_FILE_PATH: /tmp
+      LOGGING_FILE_PATH: /app/logs
     ports:
       - "8080:8080"
     networks:

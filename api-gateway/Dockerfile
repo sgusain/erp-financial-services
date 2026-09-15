@@ -36,6 +36,8 @@ WORKDIR /app
 
 COPY --from=builder --chown=appuser:appgroup /build/api-gateway/target/*.jar app.jar
 
+RUN mkdir -p /app/logs && chown -R appuser:appgroup /app/logs
+
 USER appuser
 
 EXPOSE 8080
