@@ -81,77 +81,14 @@ services:
       start_period: 30s
 
   # ---------------------------------------------------------------------
-  # Observability - ELK stack
-  # ---------------------------------------------------------------------
-
-  elasticsearch:
-    image: elasticsearch:8.13.0
-    container_name: erp-elasticsearch
-    environment:
-      - discovery.type=single-node
-      - xpack.security.enabled=false
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-    ports:
-      - "9200:9200"
-    volumes:
-      - elasticsearch-data:/usr/share/elasticsearch/data
-    healthcheck:
-      test: ["CMD-SHELL", "curl -f http://localhost:9200/_cluster/health || exit 1"]
-      interval: 30s
-      timeout: 10s
-      retries: 5
-      start_period: 60s
-    networks:
-      - erp-network
-
-  logstash:
-    image: logstash:8.13.0
-    container_name: erp-logstash
-    ports:
-      - "5000:5000/tcp"
-      - "9600:9600"
-    volumes:
-      - ./logstash/pipeline:/usr/share/logstash/pipeline:ro
-    environment:
-      - "LS_JAVA_OPTS=-Xms256m -Xmx256m"
-    depends_on:
-      elasticsearch:
-        condition: service_healthy
-    healthcheck:
-      test: ["CMD-SHELL", "curl -f http://localhost:9600 || exit 1"]
-      interval: 30s
-      timeout: 10s
-      retries: 5
-      start_period: 60s
-    networks:
-      - erp-network
-
-  kibana:
-    image: kibana:8.13.0
-    container_name: erp-kibana
-    ports:
-      - "5601:5601"
-    environment:
-      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
-    depends_on:
-      elasticsearch:
-        condition: service_healthy
-    healthcheck:
-      test: ["CMD-SHELL", "curl -f http://localhost:5601/api/status || exit 1"]
-      interval: 30s
-      timeout: 10s
-      retries: 5
-      start_period: 120s
-    networks:
-      - erp-network
-
-  # ---------------------------------------------------------------------
   # Discovery + config
   # ---------------------------------------------------------------------
 
   eureka-server:
-    image: erp-eureka-server:1.0
+    image: ${ECR_REGISTRY:-160184161543.dkr.ecr.us-east-1.amazonaws.com}/erp-eureka-server:latest
     container_name: erp-eureka-server
+    environment:
+      LOGGING_FILE_PATH: /tmp
     networks:
       - erp-network
     restart: unless-stopped
@@ -160,17 +97,19 @@ services:
     # against it.
 
   config-server:
-    image: erp-config-server:1.0
+    image: ${ECR_REGISTRY:-160184161543.dkr.ecr.us-east-1.amazonaws.com}/erp-config-server:latest
     container_name: erp-config-server
     environment:
       CONFIG_SERVER_USERNAME: ${CONFIG_SERVER_USERNAME}
       CONFIG_SERVER_PASSWORD: ${CONFIG_SERVER_PASSWORD}
-      # D:\erp-config lives outside this repo and is never baked into the
-      # image; it is bind-mounted read-only below and pointed at here.
+      # ./erp-config is committed to this repo (no longer a Windows-only,
+      # outside-the-repo path); it is bind-mounted read-only below and
+      # pointed at here.
       SPRING_CLOUD_CONFIG_SERVER_NATIVE_SEARCHLOCATIONS: file:///app/erp-config
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka/
+      LOGGING_FILE_PATH: /tmp
     volumes:
-      - D:/erp-config:/app/erp-config:ro
+      - ./erp-config:/app/erp-config:ro
     networks:
       - erp-network
     restart: unless-stopped
@@ -180,7 +119,7 @@ services:
   # ---------------------------------------------------------------------
 
   user-service:
-    image: erp-user-service:1.0
+    image: ${ECR_REGISTRY:-160184161543.dkr.ecr.us-east-1.amazonaws.com}/erp-user-service:latest
     container_name: erp-user-service
     depends_on:
       postgres:
@@ -212,12 +151,13 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/userdb?TimeZone=UTC
       SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
       JWT_SECRET: ${JWT_SECRET}
+      LOGGING_FILE_PATH: /tmp
     networks:
       - erp-network
     restart: unless-stopped
 
   account-service:
-    image: erp-account-service:1.0
+    image: ${ECR_REGISTRY:-160184161543.dkr.ecr.us-east-1.amazonaws.com}/erp-account-service:latest
     container_name: erp-account-service
     depends_on:
       postgres:
@@ -236,12 +176,13 @@ services:
       CONFIG_SERVER_PASSWORD: ${CONFIG_SERVER_PASSWORD}
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/accountdb?TimeZone=UTC
       SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
+      LOGGING_FILE_PATH: /tmp
     networks:
       - erp-network
     restart: unless-stopped
 
   budget-service:
-    image: erp-budget-service:1.0
+    image: ${ECR_REGISTRY:-160184161543.dkr.ecr.us-east-1.amazonaws.com}/erp-budget-service:latest
     container_name: erp-budget-service
     depends_on:
       postgres:
@@ -263,12 +204,13 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/budgetdb?TimeZone=UTC
       SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:29092
+      LOGGING_FILE_PATH: /tmp
     networks:
       - erp-network
     restart: unless-stopped
 
   transaction-service:
-    image: erp-transaction-service:1.0
+    image: ${ECR_REGISTRY:-160184161543.dkr.ecr.us-east-1.amazonaws.com}/erp-transaction-service:latest
     container_name: erp-transaction-service
     depends_on:
       postgres:
@@ -290,12 +232,13 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/transactiondb?TimeZone=UTC
       SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:29092
+      LOGGING_FILE_PATH: /tmp
     networks:
       - erp-network
     restart: unless-stopped
 
   notification-service:
-    image: erp-notification-service:1.0
+    image: ${ECR_REGISTRY:-160184161543.dkr.ecr.us-east-1.amazonaws.com}/erp-notification-service:latest
     container_name: erp-notification-service
     depends_on:
       postgres:
@@ -317,6 +260,7 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/notificationdb?TimeZone=UTC
       SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:29092
+      LOGGING_FILE_PATH: /tmp
     networks:
       - erp-network
     restart: unless-stopped
@@ -326,7 +270,7 @@ services:
   # ---------------------------------------------------------------------
 
   api-gateway:
-    image: erp-api-gateway:1.0
+    image: ${ECR_REGISTRY:-160184161543.dkr.ecr.us-east-1.amazonaws.com}/erp-api-gateway:latest
     container_name: erp-api-gateway
     depends_on:
       eureka-server:
@@ -342,6 +286,7 @@ services:
       CONFIG_SERVER_USERNAME: ${CONFIG_SERVER_USERNAME}
       CONFIG_SERVER_PASSWORD: ${CONFIG_SERVER_PASSWORD}
       JWT_SECRET: ${JWT_SECRET}
+      LOGGING_FILE_PATH: /tmp
     ports:
       - "8080:8080"
     networks:
@@ -350,4 +295,3 @@ services:
 
 volumes:
   postgres-data:
-  elasticsearch-data:
