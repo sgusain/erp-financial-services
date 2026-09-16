@@ -1,5 +1,18 @@
 #!/bin/bash
 yum update -y
+
+# t3.small (2GB RAM) can't hold all 11 containers' JVM/Kafka heaps without
+# swap; without this the box thrashes and burns its CPU credit balance until
+# even sshd stops responding. See scripts/setup-swap.sh for the same steps
+# applied to an already-running instance.
+if [ ! -f /swapfile ]; then
+  fallocate -l 2G /swapfile
+  chmod 600 /swapfile
+  mkswap /swapfile
+  swapon /swapfile
+  grep -q '/swapfile' /etc/fstab || echo '/swapfile swap swap defaults 0 0' >> /etc/fstab
+fi
+
 yum install -y docker git
 systemctl start docker
 systemctl enable docker

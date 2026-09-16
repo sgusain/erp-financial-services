@@ -13,6 +13,7 @@ services:
   postgres:
     image: postgres:15
     container_name: erp-postgres
+    mem_limit: 200m
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: ${DB_PASSWORD}
@@ -34,9 +35,13 @@ services:
   zookeeper:
     image: confluentinc/cp-zookeeper:7.4.0
     container_name: erp-zookeeper
+    mem_limit: 256m
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
+      # t3.small has too little RAM for this image's default (unbounded) JVM
+      # heap sizing; cap it explicitly to keep total memory use predictable.
+      KAFKA_HEAP_OPTS: "-Xms128m -Xmx128m"
     networks:
       - erp-network
     restart: unless-stopped
@@ -52,6 +57,7 @@ services:
   kafka:
     image: confluentinc/cp-kafka:7.4.0
     container_name: erp-kafka
+    mem_limit: 450m
     depends_on:
       zookeeper:
         condition: service_healthy
@@ -60,6 +66,9 @@ services:
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      # t3.small has too little RAM for this image's default 1G heap; cap it
+      # explicitly to keep total memory use predictable.
+      KAFKA_HEAP_OPTS: "-Xms256m -Xmx256m"
       # Dual-listener setup: PLAINTEXT is host-facing (localhost:9092, for
       # tools/clients running directly on the host machine), while
       # PLAINTEXT_INTERNAL is what other containers on erp-network use to
@@ -87,8 +96,12 @@ services:
   eureka-server:
     image: ${ECR_REGISTRY:-160184161543.dkr.ecr.us-east-1.amazonaws.com}/erp-eureka-server:latest
     container_name: erp-eureka-server
+    mem_limit: 350m
     environment:
       LOGGING_FILE_PATH: /app/logs
+      # Overrides the Dockerfile's -Xmx512m default: t3.small (2GB RAM) can't
+      # sustain 512m heaps across 8 JVMs at once without swapping/thrashing.
+      JAVA_OPTS: "-Xms128m -Xmx256m -XX:+UseG1GC -XX:MaxMetaspaceSize=128m -XX:+ExitOnOutOfMemoryError -Duser.timezone=UTC"
     networks:
       - erp-network
     restart: unless-stopped
@@ -99,6 +112,7 @@ services:
   config-server:
     image: ${ECR_REGISTRY:-160184161543.dkr.ecr.us-east-1.amazonaws.com}/erp-config-server:latest
     container_name: erp-config-server
+    mem_limit: 350m
     environment:
       CONFIG_SERVER_USERNAME: ${CONFIG_SERVER_USERNAME}
       CONFIG_SERVER_PASSWORD: ${CONFIG_SERVER_PASSWORD}
@@ -108,6 +122,9 @@ services:
       SPRING_CLOUD_CONFIG_SERVER_NATIVE_SEARCHLOCATIONS: file:///app/erp-config
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka/
       LOGGING_FILE_PATH: /app/logs
+      # See eureka-server for why the Dockerfile's -Xmx512m default is
+      # overridden on this box.
+      JAVA_OPTS: "-Xms128m -Xmx256m -XX:+UseG1GC -XX:MaxMetaspaceSize=128m -XX:+ExitOnOutOfMemoryError -Duser.timezone=UTC"
     volumes:
       - ./erp-config:/app/erp-config:ro
     networks:
@@ -121,6 +138,7 @@ services:
   user-service:
     image: ${ECR_REGISTRY:-160184161543.dkr.ecr.us-east-1.amazonaws.com}/erp-user-service:latest
     container_name: erp-user-service
+    mem_limit: 350m
     depends_on:
       postgres:
         condition: service_healthy
@@ -152,6 +170,9 @@ services:
       SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
       JWT_SECRET: ${JWT_SECRET}
       LOGGING_FILE_PATH: /app/logs
+      # See eureka-server (docker-compose.prod.yml) for why the Dockerfile's
+      # -Xmx512m default is overridden on this box.
+      JAVA_OPTS: "-Xms128m -Xmx256m -XX:+UseG1GC -XX:MaxMetaspaceSize=128m -XX:+ExitOnOutOfMemoryError -Duser.timezone=UTC"
     networks:
       - erp-network
     restart: unless-stopped
@@ -159,6 +180,7 @@ services:
   account-service:
     image: ${ECR_REGISTRY:-160184161543.dkr.ecr.us-east-1.amazonaws.com}/erp-account-service:latest
     container_name: erp-account-service
+    mem_limit: 350m
     depends_on:
       postgres:
         condition: service_healthy
@@ -177,6 +199,9 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/accountdb?TimeZone=UTC
       SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
       LOGGING_FILE_PATH: /app/logs
+      # See eureka-server (docker-compose.prod.yml) for why the Dockerfile's
+      # -Xmx512m default is overridden on this box.
+      JAVA_OPTS: "-Xms128m -Xmx256m -XX:+UseG1GC -XX:MaxMetaspaceSize=128m -XX:+ExitOnOutOfMemoryError -Duser.timezone=UTC"
     networks:
       - erp-network
     restart: unless-stopped
@@ -184,6 +209,7 @@ services:
   budget-service:
     image: ${ECR_REGISTRY:-160184161543.dkr.ecr.us-east-1.amazonaws.com}/erp-budget-service:latest
     container_name: erp-budget-service
+    mem_limit: 350m
     depends_on:
       postgres:
         condition: service_healthy
@@ -205,6 +231,9 @@ services:
       SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:29092
       LOGGING_FILE_PATH: /app/logs
+      # See eureka-server (docker-compose.prod.yml) for why the Dockerfile's
+      # -Xmx512m default is overridden on this box.
+      JAVA_OPTS: "-Xms128m -Xmx256m -XX:+UseG1GC -XX:MaxMetaspaceSize=128m -XX:+ExitOnOutOfMemoryError -Duser.timezone=UTC"
     networks:
       - erp-network
     restart: unless-stopped
@@ -212,6 +241,7 @@ services:
   transaction-service:
     image: ${ECR_REGISTRY:-160184161543.dkr.ecr.us-east-1.amazonaws.com}/erp-transaction-service:latest
     container_name: erp-transaction-service
+    mem_limit: 350m
     depends_on:
       postgres:
         condition: service_healthy
@@ -233,6 +263,9 @@ services:
       SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:29092
       LOGGING_FILE_PATH: /app/logs
+      # See eureka-server (docker-compose.prod.yml) for why the Dockerfile's
+      # -Xmx512m default is overridden on this box.
+      JAVA_OPTS: "-Xms128m -Xmx256m -XX:+UseG1GC -XX:MaxMetaspaceSize=128m -XX:+ExitOnOutOfMemoryError -Duser.timezone=UTC"
     networks:
       - erp-network
     restart: unless-stopped
@@ -240,6 +273,7 @@ services:
   notification-service:
     image: ${ECR_REGISTRY:-160184161543.dkr.ecr.us-east-1.amazonaws.com}/erp-notification-service:latest
     container_name: erp-notification-service
+    mem_limit: 350m
     depends_on:
       postgres:
         condition: service_healthy
@@ -261,6 +295,9 @@ services:
       SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:29092
       LOGGING_FILE_PATH: /app/logs
+      # See eureka-server (docker-compose.prod.yml) for why the Dockerfile's
+      # -Xmx512m default is overridden on this box.
+      JAVA_OPTS: "-Xms128m -Xmx256m -XX:+UseG1GC -XX:MaxMetaspaceSize=128m -XX:+ExitOnOutOfMemoryError -Duser.timezone=UTC"
     networks:
       - erp-network
     restart: unless-stopped
@@ -272,6 +309,7 @@ services:
   api-gateway:
     image: ${ECR_REGISTRY:-160184161543.dkr.ecr.us-east-1.amazonaws.com}/erp-api-gateway:latest
     container_name: erp-api-gateway
+    mem_limit: 350m
     depends_on:
       eureka-server:
         condition: service_healthy
@@ -287,6 +325,9 @@ services:
       CONFIG_SERVER_PASSWORD: ${CONFIG_SERVER_PASSWORD}
       JWT_SECRET: ${JWT_SECRET}
       LOGGING_FILE_PATH: /app/logs
+      # See eureka-server (docker-compose.prod.yml) for why the Dockerfile's
+      # -Xmx512m default is overridden on this box.
+      JAVA_OPTS: "-Xms128m -Xmx256m -XX:+UseG1GC -XX:MaxMetaspaceSize=128m -XX:+ExitOnOutOfMemoryError -Duser.timezone=UTC"
     ports:
       - "8080:8080"
     networks:
