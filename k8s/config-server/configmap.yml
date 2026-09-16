@@ -1,0 +1,193 @@
+# Mirrors ./erp-config from the repo root so config-server can serve it
+# natively (SPRING_CLOUD_CONFIG_SERVER_NATIVE_SEARCHLOCATIONS points at the
+# volume this ConfigMap is mounted at). Regenerate with:
+#   kubectl create configmap erp-config-files \
+#     --namespace erp-financial-services \
+#     --from-file=erp-config/ \
+#     --dry-run=client -o yaml > k8s/config-server/configmap.yml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: erp-config-files
+  namespace: erp-financial-services
+  labels:
+    app: config-server
+    version: v1
+    component: discovery
+data:
+  application.yml: |
+    # Common configuration shared across all ERP Financial Services microservices
+    jwt:
+      secret: ${JWT_SECRET:erp-financial-services-secret-key-2024-must-be-256-bits}
+      expiration: ${JWT_EXPIRATION:900000}
+      refresh-expiration: ${JWT_REFRESH_EXPIRATION:604800000}
+
+    management:
+      endpoints:
+        web:
+          exposure:
+            include: health,info
+
+    eureka:
+      client:
+        serviceUrl:
+          defaultZone: http://localhost:8761/eureka/
+      instance:
+        prefer-ip-address: true
+
+    spring:
+      datasource:
+        username: postgres
+        password: postgres
+        driver-class-name: org.postgresql.Driver
+
+      jpa:
+        hibernate:
+          ddl-auto: validate
+        open-in-view: false
+        show-sql: true
+        properties:
+          hibernate:
+            format_sql: true
+
+      flyway:
+        baseline-on-migrate: true
+        baseline-version: 1
+
+      kafka:
+        bootstrap-servers: localhost:9092
+        producer:
+          key-serializer: org.apache.kafka.common.serialization.StringSerializer
+          value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+          acks: all
+          retries: 3
+          properties:
+            enable.idempotence: true
+            max.in.flight.requests.per.connection: 1
+        consumer:
+          group-id: erp-notification-group
+          auto-offset-reset: earliest
+          key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+          value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+          enable-auto-commit: false
+          properties:
+            spring.json.trusted.packages: "*"
+        listener:
+          ack-mode: manual_immediate
+  eureka-server.yml: |
+    server:
+      port: 8761
+  api-gateway.yml: |
+    server:
+      port: 8080
+
+    spring:
+      cloud:
+        gateway:
+          routes:
+            - id: auth-service
+              uri: lb://USER-SERVICE
+              predicates:
+                - Path=/api/auth/**
+            - id: user-service
+              uri: lb://USER-SERVICE
+              predicates:
+                - Path=/api/users,/api/users/**
+            - id: account-service
+              uri: lb://ACCOUNT-SERVICE
+              predicates:
+                - Path=/api/accounts/**
+            - id: budget-service
+              uri: lb://BUDGET-SERVICE
+              predicates:
+                - Path=/api/budgets/**
+            - id: transaction-service
+              uri: lb://TRANSACTION-SERVICE
+              predicates:
+                - Path=/api/transactions/**
+            - id: notification-service
+              uri: lb://NOTIFICATION-SERVICE
+              predicates:
+                - Path=/api/notifications/**
+  user-service.yml: |
+    server:
+      port: 8081
+
+    spring:
+      datasource:
+        url: jdbc:postgresql://localhost:5432/userdb?TimeZone=UTC
+
+    resilience4j:
+      ratelimiter:
+        instances:
+          login:
+            limitForPeriod: 5
+            limitRefreshPeriod: 1s
+            timeoutDuration: 0s
+  account-service.yml: |
+    server:
+      port: 8082
+
+    spring:
+      datasource:
+        url: jdbc:postgresql://localhost:5432/accountdb?TimeZone=UTC
+  budget-service.yml: |
+    server:
+      port: 8083
+
+    spring:
+      datasource:
+        url: jdbc:postgresql://localhost:5432/budgetdb?TimeZone=UTC
+  transaction-service.yml: |
+    server:
+      port: 8084
+
+    spring:
+      datasource:
+        url: jdbc:postgresql://localhost:5432/transactiondb?TimeZone=UTC
+
+    feign:
+      client:
+        config:
+          default:
+            connectTimeout: 3000
+            readTimeout: 3000
+
+    resilience4j:
+      circuitbreaker:
+        instances:
+          accountService:
+            registerHealthIndicator: true
+            slidingWindowSize: 10
+            minimumNumberOfCalls: 5
+            permittedNumberOfCallsInHalfOpenState: 3
+            automaticTransitionFromOpenToHalfOpenEnabled: true
+            waitDurationInOpenState: 5s
+            failureRateThreshold: 50
+            eventConsumerBufferSize: 10
+            ignoreExceptions:
+              - feign.FeignException$NotFound
+              - io.github.resilience4j.ratelimiter.RequestNotPermitted
+      retry:
+        instances:
+          accountService:
+            maxAttempts: 3
+            waitDuration: 1s
+            enableExponentialBackoff: true
+            exponentialBackoffMultiplier: 2
+            ignoreExceptions:
+              - feign.FeignException$NotFound
+              - io.github.resilience4j.ratelimiter.RequestNotPermitted
+      ratelimiter:
+        instances:
+          accountService:
+            limitForPeriod: 10
+            limitRefreshPeriod: 1s
+            timeoutDuration: 0s
+  notification-service.yml: |
+    server:
+      port: 8085
+
+    spring:
+      datasource:
+        url: jdbc:postgresql://localhost:5432/notificationdb?TimeZone=UTC

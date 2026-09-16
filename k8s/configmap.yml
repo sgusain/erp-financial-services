@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: erp-config
+  namespace: erp-financial-services
+  labels:
+    app: erp-config
+    version: v1
+    component: config
+data:
+  EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://eureka-server:8761/eureka/"
+  CONFIG_SERVER_URL: "http://config-server:8888"
+  SPRING_KAFKA_BOOTSTRAP_SERVERS: "kafka:9092"
+  SPRING_PROFILES_ACTIVE: "prod"
+  LOGGING_FILE_PATH: "/app/logs"

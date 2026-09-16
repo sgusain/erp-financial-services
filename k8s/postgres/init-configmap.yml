@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-init-db
+  namespace: erp-financial-services
+  labels:
+    app: postgres
+    version: v1
+    component: infra
+data:
+  init-db.sql: |
+    CREATE DATABASE userdb;
+    CREATE DATABASE accountdb;
+    CREATE DATABASE budgetdb;
+    CREATE DATABASE transactiondb;
+    CREATE DATABASE notificationdb;

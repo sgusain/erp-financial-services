@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: eureka-server
+  namespace: erp-financial-services
+  labels:
+    app: eureka-server
+    version: v1
+    component: discovery
+spec:
+  type: ClusterIP
+  selector:
+    app: eureka-server
+  ports:
+    - name: http
+      port: 8761
+      targetPort: 8761

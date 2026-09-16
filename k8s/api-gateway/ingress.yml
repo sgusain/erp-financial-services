@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: api-gateway
+  namespace: erp-financial-services
+  labels:
+    app: api-gateway
+    version: v1
+    component: edge
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: api.erp-financial-services.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: api-gateway
+                port:
+                  number: 80
