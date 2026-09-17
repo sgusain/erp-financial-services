@@ -14,6 +14,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.data.redis.core.StringRedisTemplate;
 
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
@@ -37,6 +38,9 @@ class AccountLookupServiceTest {
     @Mock
     private AccountClient accountClient;
 
+    @Mock
+    private StringRedisTemplate redisTemplate;
+
     // Fallback methods are private, so we invoke them via reflection on a real instance
     // constructed with a mocked AccountClient. Built in @BeforeEach (not a field
     // initializer) since @Mock fields aren't populated until MockitoExtension runs.
@@ -44,7 +48,7 @@ class AccountLookupServiceTest {
 
     @BeforeEach
     void setUp() {
-        realService = new AccountLookupService(accountClient);
+        realService = new AccountLookupService(accountClient, redisTemplate);
     }
 
     private FeignException notFound() {

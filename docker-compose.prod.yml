@@ -89,6 +89,21 @@ services:
       retries: 15
       start_period: 30s
 
+  redis:
+    image: redis:7-alpine
+    container_name: erp-redis
+    mem_limit: 100m
+    ports:
+      - "6379:6379"
+    networks:
+      - erp-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
   # ---------------------------------------------------------------------
   # Discovery + config
   # ---------------------------------------------------------------------
@@ -142,6 +157,8 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
+      redis:
+        condition: service_healthy
       eureka-server:
         condition: service_healthy
       config-server:
@@ -169,6 +186,7 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/userdb?TimeZone=UTC
       SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
       JWT_SECRET: ${JWT_SECRET}
+      REDIS_HOST: redis
       LOGGING_FILE_PATH: /app/logs
       # See eureka-server (docker-compose.prod.yml) for why the Dockerfile's
       # -Xmx512m default is overridden on this box.
@@ -184,6 +202,8 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
+      redis:
+        condition: service_healthy
       eureka-server:
         condition: service_healthy
       config-server:
@@ -198,6 +218,7 @@ services:
       CONFIG_SERVER_PASSWORD: ${CONFIG_SERVER_PASSWORD}
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/accountdb?TimeZone=UTC
       SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
+      REDIS_HOST: redis
       LOGGING_FILE_PATH: /app/logs
       # See eureka-server (docker-compose.prod.yml) for why the Dockerfile's
       # -Xmx512m default is overridden on this box.
@@ -247,6 +268,8 @@ services:
         condition: service_healthy
       kafka:
         condition: service_healthy
+      redis:
+        condition: service_healthy
       eureka-server:
         condition: service_healthy
       config-server:
@@ -262,6 +285,7 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/transactiondb?TimeZone=UTC
       SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:29092
+      REDIS_HOST: redis
       LOGGING_FILE_PATH: /app/logs
       # See eureka-server (docker-compose.prod.yml) for why the Dockerfile's
       # -Xmx512m default is overridden on this box.
@@ -311,6 +335,8 @@ services:
     container_name: erp-api-gateway
     mem_limit: 350m
     depends_on:
+      redis:
+        condition: service_healthy
       eureka-server:
         condition: service_healthy
       config-server:
@@ -324,6 +350,7 @@ services:
       CONFIG_SERVER_USERNAME: ${CONFIG_SERVER_USERNAME}
       CONFIG_SERVER_PASSWORD: ${CONFIG_SERVER_PASSWORD}
       JWT_SECRET: ${JWT_SECRET}
+      REDIS_HOST: redis
       LOGGING_FILE_PATH: /app/logs
       # See eureka-server (docker-compose.prod.yml) for why the Dockerfile's
       # -Xmx512m default is overridden on this box.

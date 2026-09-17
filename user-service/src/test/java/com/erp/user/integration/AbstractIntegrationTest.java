@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Tag;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
+import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.utility.DockerImageName;
 
@@ -32,7 +33,16 @@ public abstract class AbstractIntegrationTest {
                     .withUsername("test")
                     .withPassword("test");
 
+    // Needed because the logout flow (AuthController -> TokenBlacklistService) makes a
+    // real Redis call; without this, AuthFlowIntegrationTest's logout step would try to
+    // reach spring.data.redis's default localhost:6379 and fail wherever that isn't
+    // actually running (e.g. CI).
+    static final GenericContainer<?> REDIS =
+            new GenericContainer<>(DockerImageName.parse("redis:7-alpine"))
+                    .withExposedPorts(6379);
+
     static {
+        REDIS.start();
         // The pgjdbc driver sends the JVM's default TimeZone as a Postgres startup
         // parameter. On this host the JVM reports the legacy Java zone ID
         // "Asia/Calcutta" (an alias for Asia/Kolkata), which Postgres's GUC parser
@@ -69,6 +79,8 @@ public abstract class AbstractIntegrationTest {
                 + POSTGRES.getMappedPort(5432) + "/" + POSTGRES.getDatabaseName() + "?TimeZone=UTC");
         registry.add("spring.datasource.username", POSTGRES::getUsername);
         registry.add("spring.datasource.password", POSTGRES::getPassword);
+        registry.add("spring.data.redis.host", REDIS::getHost);
+        registry.add("spring.data.redis.port", () -> REDIS.getMappedPort(6379));
     }
 
 }

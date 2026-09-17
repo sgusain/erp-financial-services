@@ -8,9 +8,11 @@ import com.erp.user.entity.RefreshToken;
 import com.erp.user.entity.User;
 import com.erp.user.security.JwtUtil;
 import com.erp.user.security.LoginAttemptService;
+import com.erp.user.security.TokenBlacklistService;
 import com.erp.user.service.RefreshTokenService;
 import com.erp.user.service.UserService;
 import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -28,11 +30,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class AuthController {
 
+    private static final String AUTH_HEADER = "Authorization";
+    private static final String BEARER_PREFIX = "Bearer ";
+
     private final AuthenticationManager authenticationManager;
     private final JwtUtil jwtUtil;
     private final UserService userService;
     private final RefreshTokenService refreshTokenService;
     private final LoginAttemptService loginAttemptService;
+    private final TokenBlacklistService tokenBlacklistService;
 
     @RateLimiter(name = "login")
     @PostMapping("/login")
@@ -74,8 +80,18 @@ public class AuthController {
     }
 
     @PostMapping("/logout")
-    public ResponseEntity<Void> logout(@Valid @RequestBody RefreshTokenRequest request) {
+    public ResponseEntity<Void> logout(@Valid @RequestBody RefreshTokenRequest request, HttpServletRequest httpRequest) {
         refreshTokenService.revoke(request.getRefreshToken());
+
+        String authHeader = httpRequest.getHeader(AUTH_HEADER);
+        if (authHeader != null && authHeader.startsWith(BEARER_PREFIX)) {
+            String accessToken = authHeader.substring(BEARER_PREFIX.length());
+            if (jwtUtil.isTokenValid(accessToken)) {
+                long remainingTtlMillis = jwtUtil.extractExpiration(accessToken).getTime() - System.currentTimeMillis();
+                tokenBlacklistService.blacklistToken(accessToken, remainingTtlMillis);
+            }
+        }
+
         return ResponseEntity.noContent().build();
     }
 }

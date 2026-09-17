@@ -80,6 +80,20 @@ services:
       retries: 15
       start_period: 30s
 
+  redis:
+    image: redis:7-alpine
+    container_name: erp-redis
+    ports:
+      - "6379:6379"
+    networks:
+      - erp-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
   # ---------------------------------------------------------------------
   # Discovery + config
   # ---------------------------------------------------------------------
@@ -124,6 +138,8 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
+      redis:
+        condition: service_healthy
       eureka-server:
         condition: service_healthy
       config-server:
@@ -151,6 +167,7 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/userdb?TimeZone=UTC
       SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
       JWT_SECRET: ${JWT_SECRET}
+      REDIS_HOST: redis
       LOGGING_FILE_PATH: /app/logs
     networks:
       - erp-network
@@ -161,6 +178,8 @@ services:
     container_name: erp-account-service
     depends_on:
       postgres:
+        condition: service_healthy
+      redis:
         condition: service_healthy
       eureka-server:
         condition: service_healthy
@@ -176,6 +195,7 @@ services:
       CONFIG_SERVER_PASSWORD: ${CONFIG_SERVER_PASSWORD}
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/accountdb?TimeZone=UTC
       SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
+      REDIS_HOST: redis
       LOGGING_FILE_PATH: /app/logs
     networks:
       - erp-network
@@ -217,6 +237,8 @@ services:
         condition: service_healthy
       kafka:
         condition: service_healthy
+      redis:
+        condition: service_healthy
       eureka-server:
         condition: service_healthy
       config-server:
@@ -232,6 +254,7 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/transactiondb?TimeZone=UTC
       SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:29092
+      REDIS_HOST: redis
       LOGGING_FILE_PATH: /app/logs
     networks:
       - erp-network
@@ -273,6 +296,8 @@ services:
     image: ${ECR_REGISTRY:-160184161543.dkr.ecr.us-east-1.amazonaws.com}/erp-api-gateway:latest
     container_name: erp-api-gateway
     depends_on:
+      redis:
+        condition: service_healthy
       eureka-server:
         condition: service_healthy
       config-server:
@@ -286,6 +311,7 @@ services:
       CONFIG_SERVER_USERNAME: ${CONFIG_SERVER_USERNAME}
       CONFIG_SERVER_PASSWORD: ${CONFIG_SERVER_PASSWORD}
       JWT_SECRET: ${JWT_SECRET}
+      REDIS_HOST: redis
       LOGGING_FILE_PATH: /app/logs
     ports:
       - "8080:8080"

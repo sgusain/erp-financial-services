@@ -41,6 +41,11 @@ data:
         password: postgres
         driver-class-name: org.postgresql.Driver
 
+      data:
+        redis:
+          host: ${REDIS_HOST:localhost}
+          port: 6379
+
       jpa:
         hibernate:
           ddl-auto: validate
@@ -82,6 +87,10 @@ data:
       port: 8080
 
     spring:
+      data:
+        redis:
+          host: ${REDIS_HOST:redis}
+          port: 6379
       cloud:
         gateway:
           routes:
