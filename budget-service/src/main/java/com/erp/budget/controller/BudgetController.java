@@ -1,5 +1,8 @@
 package com.erp.budget.controller;
 
+import com.erp.budget.approval.ApprovalDecisionRequest;
+import com.erp.budget.approval.ApprovalTaskDto;
+import com.erp.budget.approval.BudgetApprovalService;
 import com.erp.budget.entity.Budget;
 import com.erp.budget.service.BudgetService;
 import jakarta.validation.Valid;
@@ -18,12 +21,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/budgets")
 @RequiredArgsConstructor
 public class BudgetController {
 
     private final BudgetService budgetService;
+    private final BudgetApprovalService budgetApprovalService;
 
     @GetMapping
     public ResponseEntity<Page<Budget>> getAllBudgets(Pageable pageable) {
@@ -37,7 +43,24 @@ public class BudgetController {
 
     @PostMapping
     public ResponseEntity<Budget> createBudget(@Valid @RequestBody Budget budget) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(budgetService.createBudget(budget));
+        Budget created = budgetApprovalService.requiresApproval(budget)
+                ? budgetApprovalService.submitForApproval(budget)
+                : budgetService.createBudget(budget);
+        return ResponseEntity.status(HttpStatus.CREATED).body(created);
+    }
+
+    @GetMapping("/approvals")
+    @PreAuthorize("hasAnyRole('MANAGER', 'ADMIN')")
+    public ResponseEntity<List<ApprovalTaskDto>> getOpenApprovalTasks() {
+        return ResponseEntity.ok(budgetApprovalService.openTasks());
+    }
+
+    @PostMapping("/approvals/{taskId}")
+    @PreAuthorize("hasAnyRole('MANAGER', 'ADMIN')")
+    public ResponseEntity<Void> decide(@PathVariable String taskId,
+                                       @Valid @RequestBody ApprovalDecisionRequest request) {
+        budgetApprovalService.decide(taskId, request);
+        return ResponseEntity.noContent().build();
     }
 
     @PutMapping("/{id}")

@@ -4,3 +4,12 @@ server:
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/budgetdb?TimeZone=UTC
+
+budget:
+  approval:
+    threshold: 100000        # budgets at or above this amount need manager approval
+    escalation-after: PT48H  # ISO-8601 duration; manager task escalates to finance head after this
+
+camunda:
+  bpm:
+    history-level: audit

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+                  xmlns:camunda="http://camunda.org/schema/1.0/bpmn"
+                  id="budget-approval-definitions"
+                  targetNamespace="http://erp.com/budget">
+
+  <bpmn:process id="budgetApproval" name="Budget Approval" isExecutable="true" camunda:historyTimeToLive="30">
+
+    <bpmn:startEvent id="start" name="Budget submitted"/>
+
+    <bpmn:userTask id="managerApproval" name="Manager approval" camunda:candidateGroups="MANAGER"/>
+
+    <!-- If the manager does not act in time, the manager task is cancelled and escalated -->
+    <bpmn:boundaryEvent id="managerTimeout" name="No action in time" attachedToRef="managerApproval" cancelActivity="true">
+      <bpmn:timerEventDefinition>
+        <bpmn:timeDuration>${escalationAfter}</bpmn:timeDuration>
+      </bpmn:timerEventDefinition>
+    </bpmn:boundaryEvent>
+
+    <bpmn:userTask id="financeHeadApproval" name="Finance head approval (escalated)" camunda:candidateGroups="FINANCE_HEAD"/>
+
+    <bpmn:exclusiveGateway id="decision" name="Approved?" default="flowRejected"/>
+
+    <bpmn:serviceTask id="approveBudget" name="Activate budget" camunda:delegateExpression="${approveBudgetDelegate}"/>
+    <bpmn:serviceTask id="rejectBudget" name="Reject budget" camunda:delegateExpression="${rejectBudgetDelegate}"/>
+
+    <bpmn:endEvent id="endApproved" name="Budget active"/>
+    <bpmn:endEvent id="endRejected" name="Budget rejected"/>
+
+    <bpmn:sequenceFlow id="f1" sourceRef="start" targetRef="managerApproval"/>
+    <bpmn:sequenceFlow id="f2" sourceRef="managerApproval" targetRef="decision"/>
+    <bpmn:sequenceFlow id="f3" sourceRef="managerTimeout" targetRef="financeHeadApproval"/>
+    <bpmn:sequenceFlow id="f4" sourceRef="financeHeadApproval" targetRef="decision"/>
+    <bpmn:sequenceFlow id="flowApproved" name="yes" sourceRef="decision" targetRef="approveBudget">
+      <bpmn:conditionExpression>${approved == true}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="flowRejected" name="no" sourceRef="decision" targetRef="rejectBudget"/>
+    <bpmn:sequenceFlow id="f5" sourceRef="approveBudget" targetRef="endApproved"/>
+    <bpmn:sequenceFlow id="f6" sourceRef="rejectBudget" targetRef="endRejected"/>
+
+  </bpmn:process>
+</bpmn:definitions>
