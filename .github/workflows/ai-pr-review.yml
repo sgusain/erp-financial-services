@@ -1,0 +1,99 @@
+name: AI PR Review
+
+# Advice only. This workflow never fails the build and never blocks a merge.
+# Needs the repository secret ANTHROPIC_API_KEY. Skips fork PRs (no secrets there)
+# and PRs with the label "no-ai-review".
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  review:
+    if: >-
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      !contains(github.event.pull_request.labels.*.name, 'no-ai-review')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      AI_REVIEW_MODEL: claude-sonnet-5-5
+      MAX_DIFF_BYTES: "60000"
+      MAX_OUTPUT_TOKENS: "1500"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Build the diff (Java, YAML, SQL only)
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          git diff "origin/${BASE_REF}...HEAD" -- '*.java' '*.yml' '*.yaml' '*.sql' > full.diff
+          SIZE=$(wc -c < full.diff)
+          echo "Diff size: ${SIZE} bytes"
+          head -c "${MAX_DIFF_BYTES}" full.diff > review.diff
+          if [ "${SIZE}" -gt "${MAX_DIFF_BYTES}" ]; then
+            echo "TRUNCATED=true" >> "$GITHUB_ENV"
+          fi
+          if [ "${SIZE}" -eq 0 ]; then
+            echo "EMPTY=true" >> "$GITHUB_ENV"
+          fi
+
+      - name: Ask Claude for a review
+        if: env.EMPTY != 'true'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ -z "${ANTHROPIC_API_KEY}" ]; then
+            echo "ANTHROPIC_API_KEY is not set. Skipping." > review.md
+            exit 0
+          fi
+          jq -n \
+            --arg model "${AI_REVIEW_MODEL}" \
+            --argjson max "${MAX_OUTPUT_TOKENS}" \
+            --rawfile prompt .github/ai-review-prompt.md \
+            --rawfile diff review.diff \
+            '{model: $model, max_tokens: $max,
+              messages: [{role: "user", content: ($prompt + "\n\n<diff>\n" + $diff + "\n</diff>")}]}' \
+            > request.json
+          HTTP_CODE=$(curl -sS -o response.json -w "%{http_code}" https://api.anthropic.com/v1/messages \
+            -H "x-api-key: ${ANTHROPIC_API_KEY}" \
+            -H "anthropic-version: 2023-06-01" \
+            -H "content-type: application/json" \
+            -d @request.json || echo "000")
+          if [ "${HTTP_CODE}" = "200" ]; then
+            jq -r '.content[0].text // "AI review returned no text."' response.json > review.md
+          else
+            echo "AI review unavailable (HTTP ${HTTP_CODE})." > review.md
+          fi
+
+      - name: Post or update the PR comment
+        if: env.EMPTY != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          REPO: ${{ github.repository }}
+        run: |
+          MARKER="<!-- ai-pr-review -->"
+          {
+            echo "${MARKER}"
+            echo "## AI review (advice only)"
+            echo
+            cat review.md
+            if [ "${TRUNCATED}" = "true" ]; then
+              echo
+              echo "_The diff was larger than ${MAX_DIFF_BYTES} bytes, so only the first part was reviewed._"
+            fi
+          } > comment.md
+          COMMENT_ID=$(gh api "repos/${REPO}/issues/${PR_NUMBER}/comments" --paginate \
+            --jq ".[] | select(.body | contains(\"${MARKER}\")) | .id" | head -n 1)
+          if [ -n "${COMMENT_ID}" ]; then
+            gh api --method PATCH "repos/${REPO}/issues/comments/${COMMENT_ID}" -F body=@comment.md > /dev/null
+          else
+            gh api --method POST "repos/${REPO}/issues/${PR_NUMBER}/comments" -F body=@comment.md > /dev/null
+          fi
