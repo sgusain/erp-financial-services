@@ -49,3 +49,20 @@ Sections 5, 6, 7 (JetBrains Junie/Air/ACP, Google Antigravity, GitHub Copilot) a
 ## Interview wording rule
 
 Say "I would..." until you have built and verified the spec. After that, say "In my ERP assistant, I built...".
+
+## Build status (read this first)
+
+The Java for specs 01 to 12 is in `ai-assistant-service/`, and spec 18 is in `ai-experiments/`. **It was written without being compiled or run.** The authoring sandbox could not reach Maven Central and had no Docker. So expect small compile fixes on the first build, mostly Spring AI 2.0 and Spring Boot 4 class names. Nothing here has been run against a real model.
+
+First run, from the repo root:
+
+```
+mvn -f ai-assistant-service/pom.xml clean verify
+mvn -f ai-experiments/pom.xml clean verify
+```
+
+`AiAssistantApiTest` needs Docker (Testcontainers) and skips itself when Docker is off. Fix compile errors with Claude Code one at a time, then run the service (see `01-foundations-and-providers.md`) and open `http://localhost:8086/chat.html`.
+
+What is not built from the specs: custom Micrometer token counters (04, tokens are logged and counted in Redis instead), JSON-validation retry for structured output (03), and the Camunda hook (09). Spec 07 uses the sample policies in `ai-assistant-service/src/main/resources/policies/`. Run `POST /api/ai/policy/ingest` as ADMIN once before asking policy questions.
+
+Existing Postgres volumes: `init-db.sql` only runs on a fresh volume. On an existing one, run `CREATE DATABASE aidb;` by hand and switch the image to `pgvector/pgvector:pg15`.
