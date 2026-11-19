@@ -6,7 +6,7 @@ Stream answers token by token and provide a simple chat page.
 ## Steps
 1. `GET`/`POST /api/ai/chat/stream` returns `text/event-stream` using `ChatClient.stream()` returning a `Flux`. Memory, advisors and tools still apply. On error send an `event: error` message and close.
 2. Client disconnect cancels the model call (verify no leak).
-3. Add a plain static page `src/main/resources/static/chat.html` (HTML and JavaScript, no framework) that logs in with a JWT field, sends a message, and appends tokens as they arrive. Include a Stop button and show tool-call and confirm prompts for pending actions (spec 08).
+3. Extend the existing `static/chat.html` from spec 01 (still plain HTML and JavaScript, no framework) so it appends tokens as they arrive. Add a Stop button, a "new chat" button and chat history list (spec 05), and show tool-call and confirm prompts for pending actions (spec 08).
 4. CORS or gateway config so the page works through the gateway.
 5. MVC vs reactive: keep the service on Spring MVC. Use `Flux` only for the stream endpoint (needs the reactor dependency that Spring AI already brings).
 

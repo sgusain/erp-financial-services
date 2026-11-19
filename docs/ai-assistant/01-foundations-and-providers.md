@@ -11,11 +11,13 @@ Create `ai-assistant-service` with a working chat endpoint. Switch between Claud
 4. JWT security with the resource-server decoder (see 00-overview decision 6). Test it with a token signed the same way user-service does (HS256).
 5. Provider selection: property `erp.ai.provider` with values `anthropic`, `openai`, `gemini`, `ollama`. One `@Configuration` exposes a single `ChatClient` bean built from the selected provider's `ChatModel`. Use Spring profiles or `@ConditionalOnProperty`. Only the selected provider needs a key.
 6. `POST /api/ai/chat` body `{ "message": "..." }` returns `{ "answer": "...", "provider": "..." }`. Validate the message (not blank, max 2000 characters).
-7. Update the root README (service table, ports, routes).
+7. Basic test page: `src/main/resources/static/chat.html` (plain HTML and JavaScript, no framework, under 100 lines). It has a username and password login box (calls `/api/auth/login` on the gateway and keeps the JWT in memory), a message box, a Send button, and a chat log showing each answer and the provider used. It calls `POST /api/ai/chat`. Open it at `http://localhost:8086/chat.html` (or through the gateway). Later specs extend this same page (spec 11 adds streaming).
+8. Update the root README (service table, ports, routes).
 
 ## Done when
 - Service starts, registers in Eureka, and `/actuator/health` is UP.
 - Chat works through the gateway with a valid JWT and returns 401 without it.
+- The test page logs in, sends a message and shows the answer in the browser.
 - Changing only `erp.ai.provider` switches the model with no code change (show with Anthropic then Ollama).
 - A unit test with a stub `ChatModel` covers the controller and service. No real provider is called in tests.
 - Root `mvn clean install` is unchanged and passes.
