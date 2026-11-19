@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ERP AI Assistant - test page</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 760px; margin: 20px auto; padding: 0 12px; }
+    #log { border: 1px solid #ccc; border-radius: 6px; height: 360px; overflow-y: auto; padding: 10px; background: #fafafa; }
+    .me { color: #0a58ca; margin: 8px 0; }
+    .ai { margin: 8px 0; white-space: pre-wrap; }
+    .err { color: #b00020; margin: 8px 0; }
+    input, button { padding: 8px; font-size: 14px; }
+    #msg { width: 70%; }
+    .row { margin: 8px 0; }
+    small { color: #666; }
+  </style>
+</head>
+<body>
+  <h2>ERP AI Assistant</h2>
+  <small>Test page. Needs user-service running for login. Turn off in production (erp.ai.dev-login-enabled=false).</small>
+
+  <div class="row" id="loginRow">
+    <input id="user" placeholder="username">
+    <input id="pass" type="password" placeholder="password">
+    <button onclick="login()">Login</button>
+    <span id="who"></span>
+  </div>
+
+  <div id="log"></div>
+
+  <div class="row">
+    <input id="msg" placeholder="Ask about accounts, transactions, budgets or policies" onkeydown="if(event.key==='Enter') send()">
+    <button onclick="send()">Send</button>
+    <button onclick="newChat()">New chat</button>
+  </div>
+  <div class="row">
+    <label><input type="checkbox" id="stream" checked> Stream the answer</label>
+    <button onclick="showActions()">Pending actions</button>
+    <button onclick="runAgent()">Run budget agent</button>
+    <input id="year" type="number" value="2026" style="width:80px">
+  </div>
+
+  <script>
+    let token = null, chatId = null;
+    const log = document.getElementById('log');
+
+    function add(cls, text) {
+      const d = document.createElement('div');
+      d.className = cls; d.textContent = text;
+      log.appendChild(d); log.scrollTop = log.scrollHeight;
+      return d;
+    }
+    function headers() { return { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token }; }
+    function needLogin() { if (!token) { add('err', 'Please login first.'); return true; } return false; }
+
+    async function login() {
+      const res = await fetch('/dev/login', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username: user.value, password: pass.value }) });
+      if (!res.ok) { add('err', 'Login failed (' + res.status + ')'); return; }
+      token = (await res.json()).token;
+      who.textContent = 'Logged in as ' + user.value;
+      add('ai', 'Logged in.');
+    }
+
+    function newChat() { chatId = null; log.innerHTML = ''; }
+
+    async function send() {
+      if (needLogin() || !msg.value.trim()) return;
+      const text = msg.value; msg.value = '';
+      add('me', 'You: ' + text);
+      const body = JSON.stringify({ message: text, chatId });
+      if (stream.checked) return sendStream(body);
+
+      const res = await fetch('/api/ai/chat', { method: 'POST', headers: headers(), body });
+      const data = await res.json();
+      if (!res.ok) { add('err', data.message || 'Error ' + res.status); return; }
+      chatId = data.chatId;
+      add('ai', 'AI: ' + data.answer);
+    }
+
+    // Reads the server-sent events by hand (EventSource cannot send a POST body or an Authorization header).
+    async function sendStream(body) {
+      const res = await fetch('/api/ai/chat/stream', { method: 'POST', headers: headers(), body });
+      if (!res.ok) { const e = await res.json(); add('err', e.message || 'Error ' + res.status); return; }
+      const out = add('ai', 'AI: ');
+      const reader = res.body.getReader(), decoder = new TextDecoder();
+      let buffer = '';
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        buffer += decoder.decode(value, { stream: true });
+        const events = buffer.split('\n\n'); buffer = events.pop();
+        for (const e of events) {
+          let name = 'message'; const data = [];
+          for (const line of e.split('\n')) {
+            if (line.startsWith('event:')) name = line.slice(6).trim();
+            else if (line.startsWith('data:')) data.push(line.slice(5).replace(/^ /, ''));
+          }
+          const payload = data.join('\n');
+          if (name === 'chat') chatId = payload;
+          else if (name === 'token') { out.textContent += payload; log.scrollTop = log.scrollHeight; }
+          else if (name === 'error') add('err', payload);
+        }
+      }
+    }
+
+    async function showActions() {
+      if (needLogin()) return;
+      const res = await fetch('/api/ai/actions', { headers: headers() });
+      const page = await res.json();
+      if (!page.content.length) { add('ai', 'No pending actions.'); return; }
+      page.content.forEach(a => {
+        const d = add('ai', 'Pending: set budget ' + a.budgetId + ' total to ' + a.newTotalAmount + ' (' + a.reason + ') ');
+        const ok = document.createElement('button'); ok.textContent = 'Confirm';
+        ok.onclick = () => decide(a.id, 'confirm');
+        const no = document.createElement('button'); no.textContent = 'Reject';
+        no.onclick = () => decide(a.id, 'reject');
+        d.appendChild(ok); d.appendChild(no);
+      });
+    }
+
+    async function decide(id, what) {
+      const res = await fetch('/api/ai/actions/' + id + '/' + what, { method: 'POST', headers: headers() });
+      const data = await res.json();
+      add(res.ok ? 'ai' : 'err', res.ok ? ('Action ' + data.status) : (data.message || 'Error ' + res.status));
+    }
+
+    async function runAgent() {
+      if (needLogin()) return;
+      add('ai', 'Running budget analyst agent...');
+      const res = await fetch('/api/ai/agents/budget-analyst', { method: 'POST', headers: headers(),
+        body: JSON.stringify({ fiscalYear: Number(year.value) }) });
+      const data = await res.json();
+      if (!res.ok) { add('err', data.message || 'Error ' + res.status); return; }
+      add('ai', '[' + data.status + ', ' + data.steps + ' steps]\n' + data.report);
+    }
+  </script>
+</body>
+</html>

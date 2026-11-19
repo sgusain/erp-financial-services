@@ -1,0 +1,142 @@
+server:
+  port: 8086
+
+spring:
+  application:
+    name: ai-assistant-service
+
+  # Same pattern as the other services: shared settings come from the config server.
+  # optional: so the service still starts if the config server is down (local dev).
+  config:
+    import: "optional:configserver:${CONFIG_SERVER_URL:http://localhost:8888}"
+  cloud:
+    config:
+      username: ${CONFIG_SERVER_USERNAME:}
+      password: ${CONFIG_SERVER_PASSWORD:}
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/aidb?TimeZone=UTC
+    username: postgres
+    password: ${DB_PASSWORD:postgres}
+
+  flyway:
+    # Used inside V2 so the vector column size matches the embedding model.
+    placeholders:
+      embedding_dimensions: ${erp.ai.embedding-dimensions}
+
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: 6379
+
+  ai:
+    # Only the provider named here is switched on. Change it with ERP_AI_PROVIDER.
+    model:
+      chat: ${ERP_AI_PROVIDER:ollama}
+      embedding: ${ERP_AI_EMBEDDING_PROVIDER:ollama}
+    anthropic:
+      api-key: ${ANTHROPIC_API_KEY:}
+      chat:
+        options:
+          model: claude-sonnet-5-5
+          max-tokens: 1024
+    openai:
+      api-key: ${OPENAI_API_KEY:}
+      chat:
+        options:
+          model: gpt-4o-mini
+      embedding:
+        options:
+          model: text-embedding-3-small
+    google:
+      genai:
+        api-key: ${GEMINI_API_KEY:}
+        chat:
+          options:
+            model: gemini-2.5-flash
+    ollama:
+      base-url: ${OLLAMA_URL:http://localhost:11434}
+      chat:
+        options:
+          model: llama3.2
+      embedding:
+        options:
+          model: nomic-embed-text
+    vectorstore:
+      pgvector:
+        # Flyway creates the table (V2). Spring AI must not create it.
+        initialize-schema: false
+        index-type: HNSW
+        distance-type: COSINE_DISTANCE
+        dimensions: ${erp.ai.embedding-dimensions}
+    chat:
+      memory:
+        repository:
+          jdbc:
+            # Flyway creates the table (V1).
+            initialize-schema: never
+    mcp:
+      server:
+        name: erp-ai-assistant
+        version: 1.0.0
+        protocol: STREAMABLE
+        streamable-http:
+          mcp-endpoint: /mcp
+      client:
+        # Off by default so startup does not need an MCP server to be running.
+        enabled: false
+
+erp:
+  ai:
+    # Must match the embedding model above: nomic-embed-text = 768, text-embedding-3-small = 1536.
+    embedding-dimensions: 768
+    dev-login-enabled: ${ERP_AI_DEV_LOGIN:true}
+    intent-routing-enabled: true
+    log-prompts: false
+    memory:
+      max-messages: 20
+    agent:
+      max-steps: 6
+      timeout-seconds: 60
+    rag:
+      top-k: 4
+      similarity-threshold: 0.5
+      chunk-size: 400
+    limits:
+      max-message-length: 2000
+      requests-per-minute: 20
+      daily-tokens-per-user: 50000
+      daily-tokens-global: 500000
+  clients:
+    # Empty means "find the service through Eureka". Set a URL to call a service directly.
+    account-url: ${ACCOUNT_SERVICE_URL:}
+    transaction-url: ${TRANSACTION_SERVICE_URL:}
+    budget-url: ${BUDGET_SERVICE_URL:}
+    user-url: ${USER_SERVICE_URL:}
+
+jwt:
+  secret: ${JWT_SECRET:erp-financial-services-secret-key-2024-must-be-256-bits}
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_CLIENT_SERVICEURL_DEFAULTZONE:http://localhost:8761/eureka/}
+  instance:
+    prefer-ip-address: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+logging:
+  structured:
+    format:
+      console: logstash
+  level:
+    com.erp.ai: INFO
