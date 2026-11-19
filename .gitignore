@@ -8,3 +8,7 @@ target/
 .DS_Store
 aws-key/
 *.pem
+
+# Local MCP config with real tokens (use .mcp.json.example as the template)
+.mcp.local.json
+.env.n8n
