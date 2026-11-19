@@ -4,7 +4,7 @@ ERP Financial Services: Spring Boot microservices (Maven multi-module). Learning
 
 ## Stack
 Java 17, Spring Boot 3.2.5, Spring Cloud 2023.0.1, PostgreSQL 15, Kafka, Redis, Docker, Kubernetes, GitHub Actions to AWS ECR.
-Exception: `ai-assistant-service/` is standalone and uses its own newer Boot and Spring AI versions (see docs/ai-assistant/00-overview.md). It is not in the root `<modules>`.
+Exception: `ai-assistant-service/` is standalone (Java 21, Spring Boot 4.0.x, Spring AI 2.0.x, Spring Cloud 2025.1.2) (see docs/ai-assistant/00-overview.md). It is not in the root `<modules>`.
 
 ## Services and ports
 eureka-server 8761, config-server 8888, api-gateway 8080, user-service 8081, account-service 8082, budget-service 8083, transaction-service 8084, notification-service 8085, ai-assistant-service 8086.
