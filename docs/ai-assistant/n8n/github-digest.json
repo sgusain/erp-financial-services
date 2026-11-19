@@ -1,0 +1,91 @@
+{
+  "name": "GitHub Activity Digest",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "11111111-1111-4111-8111-111111111111",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "url": "https://api.github.com/repos/sgusain/erp-financial-services/commits",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            { "name": "per_page", "value": "30" }
+          ]
+        },
+        "options": {}
+      },
+      "id": "22222222-2222-4222-8222-222222222222",
+      "name": "Get Recent Commits",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [240, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const lines = $input.all().map(item => {\n  const c = item.json.commit;\n  return `- ${c.author.date.slice(0, 10)} ${c.author.name}: ${c.message.split('\\n')[0]}`;\n});\nreturn [{ json: { activity: lines.join('\\n') } }];"
+      },
+      "id": "33333333-3333-4333-8333-333333333333",
+      "name": "Format Activity",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [480, 0]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "anthropic-version", "value": "2023-06-01" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ { model: 'claude-sonnet-5-5', max_tokens: 600, messages: [ { role: 'user', content: 'Summarize this GitHub activity in 5 short bullet points for a weekly digest. Mention the main themes and anything that looks risky.\\n\\n' + $json.activity } ] } }}",
+        "options": {}
+      },
+      "id": "44444444-4444-4444-8444-444444444444",
+      "name": "Summarize With Claude",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [720, 0]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "digest-field",
+              "name": "digest",
+              "value": "={{ $json.content[0].text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "55555555-5555-4555-8555-555555555555",
+      "name": "Digest Output",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [960, 0]
+    }
+  ],
+  "connections": {
+    "Manual Trigger": { "main": [[{ "node": "Get Recent Commits", "type": "main", "index": 0 }]] },
+    "Get Recent Commits": { "main": [[{ "node": "Format Activity", "type": "main", "index": 0 }]] },
+    "Format Activity": { "main": [[{ "node": "Summarize With Claude", "type": "main", "index": 0 }]] },
+    "Summarize With Claude": { "main": [[{ "node": "Digest Output", "type": "main", "index": 0 }]] }
+  },
+  "settings": { "executionOrder": "v1" },
+  "active": false
+}
