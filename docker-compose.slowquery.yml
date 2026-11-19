@@ -1,0 +1,17 @@
+# Optional override for local slow query analysis (spec 15).
+# Turns on pg_stat_statements in the compose Postgres.
+#
+#   docker compose -f docker-compose.yml -f docker-compose.slowquery.yml up -d postgres
+#
+# Then, once, in the database you want to inspect:
+#   psql -h localhost -U postgres -d transactiondb -c "CREATE EXTENSION IF NOT EXISTS pg_stat_statements;"
+#
+# Local use only. Do not use this file in production.
+services:
+  postgres:
+    command:
+      - postgres
+      - -c
+      - shared_preload_libraries=pg_stat_statements
+      - -c
+      - pg_stat_statements.track=all
