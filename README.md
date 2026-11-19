@@ -113,6 +113,18 @@ Eureka dashboard: http://localhost:8761
 | Budget Service          | 8083 | BUDGET-SERVICE          |
 | Transaction Service     | 8084 | TRANSACTION-SERVICE     |
 | Notification Service    | 8085 | NOTIFICATION-SERVICE    |
+| AI Assistant (optional) | 8086 | AI-ASSISTANT-SERVICE    |
+
+## AI Assistant (optional)
+
+`ai-assistant-service` is a separate Maven project (Java 21, Spring Boot 4, Spring AI 2). It is not built by `mvn clean install` at the root, so the other services are not affected. See `docs/ai-assistant/README.md` for the specs and build status, and:
+
+```
+mvn -f ai-assistant-service/pom.xml clean verify
+docker compose --profile ai up -d --build ai-assistant-service
+```
+
+Test page: `http://localhost:8086/chat.html`. API through the gateway: `/api/ai/**`.
 
 ## API Endpoints
 
@@ -182,5 +194,7 @@ erp-financial-services/
 ├── budget-service/              (8083 - budgetdb)
 ├── transaction-service/         (8084 - transactiondb)
 ├── notification-service/        (8085 - notificationdb)
+├── ai-assistant-service/        (8086 - aidb, standalone: Java 21, Spring Boot 4, Spring AI; not in root modules)
+├── ai-experiments/              (LangChain4j and LangGraph4j demos, not deployed)
 └── README.md
 ```

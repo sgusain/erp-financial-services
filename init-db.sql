@@ -3,3 +3,4 @@ CREATE DATABASE accountdb;
 CREATE DATABASE budgetdb;
 CREATE DATABASE transactiondb;
 CREATE DATABASE notificationdb;
+CREATE DATABASE aidb;

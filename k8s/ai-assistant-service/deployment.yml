@@ -1,0 +1,72 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ai-assistant-service
+  namespace: erp-financial-services
+  labels:
+    app: ai-assistant-service
+    version: v1
+    component: ai
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ai-assistant-service
+  template:
+    metadata:
+      labels:
+        app: ai-assistant-service
+        version: v1
+        component: ai
+    spec:
+      imagePullSecrets:
+        - name: ecr-registry-secret
+      containers:
+        - name: ai-assistant-service
+          # NOTE: the CI pipeline does not build this image yet (the module is outside the root reactor).
+          image: 160184161543.dkr.ecr.us-east-1.amazonaws.com/erp-ai-assistant-service:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8086
+              name: http
+          envFrom:
+            - configMapRef:
+                name: erp-config
+            - secretRef:
+                name: erp-secrets
+            # Provider API keys live in their own secret. See ai-secrets.example.yml.
+            - secretRef:
+                name: ai-secrets
+                optional: true
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: "jdbc:postgresql://postgres:5432/aidb?TimeZone=UTC"
+            - name: ERP_AI_DEV_LOGIN
+              value: "false"
+            - name: ERP_AI_PROVIDER
+              value: "anthropic"
+            - name: ERP_AI_EMBEDDING_PROVIDER
+              value: "openai"
+          resources:
+            requests:
+              memory: "384Mi"
+              cpu: "250m"
+            limits:
+              memory: "768Mi"
+              cpu: "500m"
+          livenessProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: 8086
+            initialDelaySeconds: 60
+            periodSeconds: 15
+            timeoutSeconds: 5
+            failureThreshold: 6
+          readinessProbe:
+            httpGet:
+              path: /actuator/health/readiness
+              port: 8086
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 6

@@ -11,7 +11,8 @@ services:
   # ---------------------------------------------------------------------
 
   postgres:
-    image: postgres:15
+    # pgvector image = Postgres 15 plus the vector extension (needed by ai-assistant-service).
+    image: pgvector/pgvector:pg15
     container_name: erp-postgres
     environment:
       POSTGRES_USER: postgres
@@ -315,6 +316,48 @@ services:
       LOGGING_FILE_PATH: /app/logs
     ports:
       - "8080:8080"
+    networks:
+      - erp-network
+    restart: unless-stopped
+
+  # AI assistant (standalone module, Java 21 / Spring Boot 4). Optional: starts only with
+  #   docker compose --profile ai up -d --build ai-assistant-service
+  # Needs the aidb database (see init-db.sql; on an existing volume create it by hand) and a provider key.
+  ai-assistant-service:
+    profiles: ["ai"]
+    build:
+      context: ./ai-assistant-service
+    container_name: erp-ai-assistant-service
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      eureka-server:
+        condition: service_healthy
+      config-server:
+        condition: service_healthy
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka/
+      CONFIG_SERVER_URL: http://config-server:8888
+      CONFIG_SERVER_USERNAME: ${CONFIG_SERVER_USERNAME}
+      CONFIG_SERVER_PASSWORD: ${CONFIG_SERVER_PASSWORD}
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/aidb?TimeZone=UTC
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET}
+      REDIS_HOST: redis
+      # Pick one provider: anthropic, openai, google-genai, ollama (default). Set its key below.
+      ERP_AI_PROVIDER: ${ERP_AI_PROVIDER:-ollama}
+      ERP_AI_EMBEDDING_PROVIDER: ${ERP_AI_EMBEDDING_PROVIDER:-ollama}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      OLLAMA_URL: ${OLLAMA_URL:-http://host.docker.internal:11434}
+      ERP_AI_DEV_LOGIN: ${ERP_AI_DEV_LOGIN:-true}
+      USER_SERVICE_URL: http://user-service:8081
+      LOGGING_FILE_PATH: /app/logs
+    ports:
+      - "8086:8086"
     networks:
       - erp-network
     restart: unless-stopped

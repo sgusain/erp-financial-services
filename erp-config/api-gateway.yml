@@ -33,3 +33,7 @@ spring:
           uri: lb://NOTIFICATION-SERVICE
           predicates:
             - Path=/api/notifications/**
+        - id: ai-assistant-service
+          uri: lb://AI-ASSISTANT-SERVICE
+          predicates:
+            - Path=/api/ai/**

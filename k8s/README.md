@@ -22,6 +22,7 @@ k8s/
 ├── budget-service/
 ├── transaction-service/
 ├── notification-service/
+├── ai-assistant-service/      # optional AI assistant (own image, needs ai-secrets)
 └── hpa/                       # HorizontalPodAutoscalers
 ```
 
