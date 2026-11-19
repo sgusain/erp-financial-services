@@ -25,7 +25,7 @@ class BudgetGraphTest {
         RunnableConfig approved = app.updateState(config, Map.of("approved", true));
         app.stream(GraphInput.resume(), approved).forEach(step -> { });
 
-        assertThat(app.getState(approved).state().result()).startsWith("SUBMITTED");
+        assertThat(app.getState(config).state().result()).startsWith("SUBMITTED");
     }
 
     @Test

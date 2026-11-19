@@ -81,6 +81,7 @@ public final class BudgetGraph {
 
         return graph.compile(CompileConfig.builder()
                 .checkpointSaver(new MemorySaver())
+                .releaseThread(false)
                 .interruptBefore("submit")
                 .build());
     }
